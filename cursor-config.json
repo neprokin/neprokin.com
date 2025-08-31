@@ -1,0 +1,57 @@
+{
+  "project": {
+    "name": "neprokin.com",
+    "description": "Personal website powered by Obsidian and Astro with custom UI-kit",
+    "version": "1.0.0",
+    "type": "website"
+  },
+  "cursor": {
+    "projectRules": ".cursor/index.mdc",
+    "notepads": ".cursor/notepads/",
+    "ignore": ".cursorignore",
+    "uiKit": "ui-kit-preview.html"
+  },
+  "features": {
+    "agentMode": true,
+    "chatMode": true,
+    "backgroundAgent": true,
+    "bugBot": true,
+    "memories": true,
+    "maxMode": true,
+    "fusionTabModel": true,
+    "jupyterNotebooks": false,
+    "prIndexing": true,
+    "globalIgnore": true,
+    "multiRootWorkspaces": false
+  },
+  "architecture": {
+    "framework": "astro",
+    "contentManagement": "obsidian",
+    "styling": "tailwind-css",
+    "language": "typescript",
+    "buildTool": "vite",
+    "deployment": "vercel"
+  },
+  "contentTypes": [
+    "blog-posts",
+    "projects",
+    "about-pages",
+    "notes"
+  ],
+  "technologies": [
+    "astro",
+    "typescript",
+    "tailwind-css",
+    "vite",
+    "obsidian",
+    "markdown",
+    "unified-js",
+    "remark",
+    "rehype"
+  ],
+  "performance": {
+    "targetLighthouseScore": 100,
+    "maxBundleSize": "50KB",
+    "coreWebVitals": "optimized"
+  }
+} 

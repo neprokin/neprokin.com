@@ -1,11 +1,72 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Badge from '../components/ui/Badge.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Neprokin — Simple Design of Complex Systems" description="I develop a system design based on data, user tasks, and common sense">
+	<main class="container">
+		<!-- Header Section -->
+		<header style="padding: 64px 0 48px; text-align: center;">
+			<h1 class="h1 text-accent" style="margin-bottom: 16px;">Simple Design of Complex Systems</h1>
+			<p class="body-large text-secondary" style="margin-bottom: 32px;">I develop a system design based on data, user tasks, and common sense</p>
+			
+			<div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
+				<Badge>SaaS</Badge>
+				<Badge>Design Systems</Badge>
+				<Badge>Support for Startups</Badge>
+			</div>
+			
+			<Button href="https://telegram.me/neprokin">Write in Telegram</Button>
+		</header>
+
+		<!-- Process Section -->
+		<section style="padding: 48px 0; text-align: center;">
+			<h2 class="h2" style="margin-bottom: 24px;">Design Process</h2>
+			<p class="body text-secondary" style="max-width: 800px; margin: 0 auto;">
+				Concept → Goals → Research → Roles and Context → Tasks → Scenarios → Architecture → Prototype → Interface → Handover to Development → Authorial Supervision
+			</p>
+		</section>
+
+		<!-- Portfolio Section -->
+		<section style="padding: 48px 0;">
+			<h2 class="h2" style="margin-bottom: 32px; text-align: center;">Large companies and startups trust me</h2>
+			
+			<div class="grid grid-2" style="max-width: 800px; margin: 0 auto;">
+				<Card>
+					<h3 class="body-large" style="margin-bottom: 8px;">Urbi</h3>
+					<p class="body text-secondary" style="margin-bottom: 12px;">Senior Product Designer</p>
+					<Badge>Current</Badge>
+				</Card>
+				
+				<Card>
+					<h3 class="body-large" style="margin-bottom: 8px;">M2 Pro</h3>
+					<p class="body text-secondary" style="margin-bottom: 12px;">Senior Product Designer</p>
+					<Badge>2 years</Badge>
+				</Card>
+				
+				<Card>
+					<h3 class="body-large" style="margin-bottom: 8px;">VK Tax Compliance</h3>
+					<p class="body text-secondary" style="margin-bottom: 12px;">Lead Product Designer</p>
+					<Badge>1 year</Badge>
+				</Card>
+				
+				<Card>
+					<h3 class="body-large" style="margin-bottom: 8px;">Skipp Pro</h3>
+					<p class="body text-secondary" style="margin-bottom: 12px;">Lead Product Designer</p>
+					<Badge>2 years</Badge>
+				</Card>
+			</div>
+		</section>
+
+		<!-- Footer Section -->
+		<footer style="padding: 48px 0; text-align: center; border-top: 1px solid var(--border-color);">
+			<p class="body text-secondary" style="margin-bottom: 16px;">© 2009–2024</p>
+			<div style="display: flex; gap: 24px; justify-content: center;">
+				<a href="mailto:stas.neprokin@gmail.com" class="body text-accent">stas.neprokin@gmail.com</a>
+				<a href="https://telegram.me/neprokin" class="body text-accent">telegram.me/neprokin</a>
+			</div>
+		</footer>
+	</main>
 </Layout>

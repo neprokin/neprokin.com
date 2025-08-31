@@ -1,0 +1,24 @@
+---
+export interface Props {
+  class?: string;
+  hover?: boolean;
+}
+
+const { 
+  class: className = '',
+  hover = true,
+  ...props 
+} = Astro.props;
+
+const classes = [
+  'card',
+  className
+].filter(Boolean).join(' ');
+---
+
+<div 
+  class={classes}
+  {...props}
+>
+  <slot />
+</div>

@@ -1,0 +1,93 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+.npm/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.astro/
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+.tmp/
+.temp/
+*.tmp
+*.temp
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+.coverage/
+*.lcov
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# Documentation build
+docs/_build/
+site/
+_site/
+
+# Package manager lock files (включаем в ignore для Cursor)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Astro specific
+.astro/
+
+# Content that might be large
+content/assets/large-files/
+content/videos/
+*.mp4
+*.mov
+*.avi
+
+# Generated files
+sitemap.xml
+rss.xml
+robots.txt
+
+# TypeScript
+*.tsbuildinfo
+
+# Miscellaneous
+*.tgz
+*.tar.gz
+.gitattributes

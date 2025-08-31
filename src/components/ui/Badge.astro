@@ -1,0 +1,22 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { 
+  class: className = '',
+  ...props 
+} = Astro.props;
+
+const classes = [
+  'badge',
+  className
+].filter(Boolean).join(' ');
+---
+
+<span 
+  class={classes}
+  {...props}
+>
+  <slot />
+</span>
