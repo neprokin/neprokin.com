@@ -7,8 +7,20 @@ import Badge from '../components/ui/Badge.astro';
 
 <Layout title="Neprokin — Simple Design of Complex Systems" description="I develop a system design based on data, user tasks, and common sense">
 	<main class="container">
+		<!-- Navigation -->
+		<nav style="padding: 24px 0; border-bottom: 1px solid var(--border-color); margin-bottom: 40px;">
+			<div style="display: flex; justify-content: space-between; align-items: center;">
+				<a href="/" class="body-large text-accent">neprokin</a>
+				<div style="display: flex; gap: 24px;">
+					<a href="/blog" class="body text-secondary">Blog</a>
+					<a href="/projects" class="body text-secondary">Projects</a>
+					<a href="mailto:stas.neprokin@gmail.com" class="body text-accent">Contact</a>
+				</div>
+			</div>
+		</nav>
+
 		<!-- Header Section -->
-		<header style="padding: 64px 0 48px; text-align: center;">
+		<header style="padding: 40px 0 48px; text-align: center;">
 			<h1 class="h1 text-accent" style="margin-bottom: 16px;">Simple Design of Complex Systems</h1>
 			<p class="body-large text-secondary" style="margin-bottom: 32px;">I develop a system design based on data, user tasks, and common sense</p>
 			

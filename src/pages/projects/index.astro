@@ -1,0 +1,114 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+
+// Получаем все проекты
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => a.data.order - b.data.order);
+
+const currentProjects = sortedProjects.filter(project => project.data.status === 'current');
+const completedProjects = sortedProjects.filter(project => project.data.status === 'completed');
+const featuredProjects = sortedProjects.filter(project => project.data.featured);
+---
+
+<Layout 
+  title="Projects - neprokin.com"
+  description="Portfolio of product design projects for leading companies and startups"
+>
+  <main class="container">
+    <!-- Header -->
+    <header style="padding: 64px 0 48px; text-align: center;">
+      <h1 class="h1 text-accent" style="margin-bottom: 16px;">Projects</h1>
+      <p class="body-large text-secondary" style="margin-bottom: 32px;">
+        Portfolio of product design work for leading companies and startups
+      </p>
+    </header>
+
+    <!-- Current Projects -->
+    {currentProjects.length > 0 && (
+      <section style="margin-bottom: 64px;">
+        <h2 class="h2" style="margin-bottom: 32px;">Current Work</h2>
+        <div class="grid grid-1">
+          {currentProjects.map((project) => (
+            <Card>
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px;">
+                <div>
+                  <h3 class="body-large" style="margin-bottom: 4px;">
+                    <a href={`/projects/${project.slug}`} class="text-accent">{project.data.title}</a>
+                  </h3>
+                  <p class="body text-secondary">{project.data.company} • {project.data.role}</p>
+                </div>
+                <Badge>Current</Badge>
+              </div>
+              <p class="body text-secondary" style="margin-bottom: 16px;">{project.data.description}</p>
+              {project.data.technologies && (
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                  {project.data.technologies.slice(0, 4).map((tech) => (
+                    <Badge>{tech}</Badge>
+                  ))}
+                </div>
+              )}
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <a href={`/projects/${project.slug}`} class="body text-accent">View Details →</a>
+                {project.data.externalUrl && (
+                  <a href={project.data.externalUrl} class="body text-secondary" target="_blank">Live Project ↗</a>
+                )}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Featured Projects -->
+    {featuredProjects.length > 0 && (
+      <section style="margin-bottom: 64px;">
+        <h2 class="h2" style="margin-bottom: 32px;">Featured Work</h2>
+        <div class="grid grid-2">
+          {featuredProjects.map((project) => (
+            <Card>
+              <div style="margin-bottom: 12px;">
+                <h3 class="body-large" style="margin-bottom: 4px;">
+                  <a href={`/projects/${project.slug}`} class="text-accent">{project.data.title}</a>
+                </h3>
+                <p class="body text-secondary">{project.data.company} • {project.data.duration}</p>
+              </div>
+              <p class="body text-secondary" style="margin-bottom: 16px;">{project.data.description}</p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <Badge>{project.data.role}</Badge>
+                <a href={`/projects/${project.slug}`} class="body text-accent">Details →</a>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- All Projects -->
+    <section style="margin-bottom: 64px;">
+      <h2 class="h2" style="margin-bottom: 32px;">All Projects</h2>
+      <div class="grid grid-2">
+        {completedProjects.map((project) => (
+          <Card>
+            <div style="margin-bottom: 12px;">
+              <h3 class="body-large" style="margin-bottom: 4px;">
+                <a href={`/projects/${project.slug}`} class="text-accent">{project.data.title}</a>
+              </h3>
+              <p class="body text-secondary">{project.data.company} • {project.data.duration}</p>
+            </div>
+            <p class="body text-secondary" style="margin-bottom: 16px;">{project.data.description}</p>
+            <Badge>{project.data.role}</Badge>
+          </Card>
+        ))}
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav style="padding: 32px 0; border-top: 1px solid var(--border-color); text-align: center;">
+      <a href="/" class="body text-accent">← Back to Home</a>
+    </nav>
+  </main>
+</Layout>

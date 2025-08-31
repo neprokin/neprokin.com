@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
+import remarkWikiLink from 'remark-wiki-link';
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,7 +36,12 @@ export default defineConfig({
       wrap: true
     },
     remarkPlugins: [
-      // Добавим remark-wiki-link после настройки
+      [remarkWikiLink, {
+        pageResolver: (name) => [name.replace(/ /g, '-').toLowerCase()],
+        hrefTemplate: (permalink) => `/${permalink}`,
+        aliasDivider: '|',
+        markdownFolder: 'src/content/',
+      }],
     ],
     rehypePlugins: [
       // Добавим rehype-highlight после настройки  

@@ -1,0 +1,21 @@
+{
+  "newFileLocation": "current",
+  "newFileFolderPath": "blog",
+  "attachmentFolderPath": "assets",
+  "useMarkdownLinks": true,
+  "newLinkFormat": "shortest",
+  "showUnsupportedFiles": false,
+  "promptDelete": true,
+  "alwaysUpdateLinks": true,
+  "strictLineBreaks": false,
+  "foldHeading": true,
+  "foldIndent": true,
+  "showLineNumber": false,
+  "spellcheck": true,
+  "spellcheckLanguages": ["en-US", "ru-RU"],
+  "rtl": false,
+  "defaultViewMode": "preview",
+  "readableLineLength": true,
+  "showFrontmatter": true,
+  "theme": "obsidian"
+}
