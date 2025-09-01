@@ -16,7 +16,7 @@ results:
 featured: true
 order: 1
 status: "current"
-image: "/images/projects/urbi-hero.jpg"
+image: "/images/projects/urbi-hero.svg"
 imageAlt: "Urbi mobility platform interface"
 externalUrl: "https://urbi.ae"
 ---

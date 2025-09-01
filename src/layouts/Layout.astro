@@ -37,15 +37,54 @@ const { title, description = "Simple Design of Complex Systems" } = Astro.props;
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href="https://neprokin.com/" />
 		
-		<!-- IBM Plex Sans Font -->
+		<!-- IBM Plex Sans Font - Optimized -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;500&display=swap" rel="stylesheet">
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;500&display=swap" rel="stylesheet"></noscript>
 		
-		<!-- UI Kit Styles -->
+		<!-- Critical CSS Inline -->
 		<style is:global>
-			@import '../styles/globals.css';
+			/* Critical styles for immediate rendering */
+			* { margin: 0; padding: 0; box-sizing: border-box; }
+			
+			:root {
+				--white: #FDFDFD; --light: #F8F8F8; --border: #F0F0F0;
+				--text-secondary: #6B6B6B; --dark: #212121; --black: #0A0A0A;
+				--bg: var(--white); --surface: var(--light); --border-color: var(--border);
+				--text-muted: var(--text-secondary); --text: var(--dark); --accent: var(--black);
+				--font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+			}
+			
+			[data-theme="dark"] {
+				--bg: var(--black); --surface: var(--dark); --text: var(--light);
+				--accent: var(--white); --border-color: #1A1A1A; --text-muted: #9B9B9B;
+			}
+			
+			html { font-family: var(--font-family); background-color: var(--bg); color: var(--text); }
+			body { line-height: 1.5; -webkit-font-smoothing: antialiased; }
+			
+			.h1 { font-weight: 300; font-size: 48px; line-height: 52px; color: var(--text); }
+			.h2 { font-weight: 300; font-size: 32px; line-height: 36px; color: var(--text); }
+			.body-large { font-weight: 300; font-size: 20px; line-height: 28px; color: var(--text); }
+			.body { font-weight: 500; font-size: 16px; line-height: 24px; color: var(--text); }
+			
+			.text-primary { color: var(--text); }
+			.text-secondary { color: var(--text-muted); }
+			.text-accent { color: var(--accent); }
+			
+			.container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+			
+			@media (max-width: 767px) {
+				.h1 { font-size: 32px; line-height: 36px; }
+				.h2 { font-size: 24px; line-height: 28px; }
+				.container { padding: 0 16px; }
+			}
 		</style>
+		
+		<!-- Full UI Kit Styles (non-critical, loaded async) -->
+		<link rel="preload" href="/styles/globals.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="/styles/globals.css"></noscript>
 	</head>
 	<body>
 		<slot />

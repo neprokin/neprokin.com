@@ -16,7 +16,7 @@ results:
 featured: true
 order: 2
 status: "completed"
-image: "/images/projects/m2-pro-hero.jpg"
+image: "/images/projects/m2-pro-hero.svg"
 imageAlt: "M2 Pro real estate platform"
 externalUrl: "https://m2.ru/rieltoram/bonus-novostroyki/"
 ---

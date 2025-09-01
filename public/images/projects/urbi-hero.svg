@@ -1,0 +1,13 @@
+<svg width="400" height="240" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="240" fill="#F8F8F8"/>
+  <rect x="40" y="40" width="320" height="160" rx="8" fill="#FDFDFD" stroke="#F0F0F0"/>
+  <circle cx="80" cy="80" r="16" fill="#0A0A0A"/>
+  <rect x="112" y="68" width="120" height="8" rx="4" fill="#212121"/>
+  <rect x="112" y="84" width="80" height="6" rx="3" fill="#6B6B6B"/>
+  <rect x="40" y="120" width="320" height="1" fill="#F0F0F0"/>
+  <rect x="80" y="140" width="240" height="4" rx="2" fill="#F0F0F0"/>
+  <rect x="80" y="150" width="200" height="4" rx="2" fill="#F0F0F0"/>
+  <rect x="80" y="160" width="160" height="4" rx="2" fill="#F0F0F0"/>
+  <rect x="280" y="175" width="60" height="20" rx="10" fill="#0A0A0A"/>
+  <text x="310" y="187" text-anchor="middle" fill="#FDFDFD" font-family="system-ui" font-size="10" font-weight="500">Urbi</text>
+</svg>

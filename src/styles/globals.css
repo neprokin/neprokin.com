@@ -65,6 +65,12 @@
   }
 }
 
+/* === FONT DISPLAY OPTIMIZATION === */
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-display: swap;
+}
+
 /* === BASE STYLES === */
 * {
   margin: 0;

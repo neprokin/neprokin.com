@@ -5,7 +5,7 @@ publishDate: 2025-08-31
 tags: ["design-systems", "ui-design", "minimalism", "web-design"]
 draft: false
 featured: true
-image: "/images/blog/design-systems-hero.jpg"
+image: "/images/blog/design-systems-hero.svg"
 imageAlt: "Minimalist design system showcase"
 readingTime: 8
 ---
