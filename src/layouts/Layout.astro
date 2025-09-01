@@ -82,9 +82,7 @@ const { title, description = "Simple Design of Complex Systems" } = Astro.props;
 			}
 		</style>
 		
-		<!-- Full UI Kit Styles (non-critical, loaded async) -->
-		<link rel="preload" href="/styles/globals.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="/styles/globals.css"></noscript>
+		<!-- All styles are inlined above for optimal performance -->
 	</head>
 	<body>
 		<slot />
