@@ -19,6 +19,24 @@ const { title, description = "Simple Design of Complex Systems" } = Astro.props;
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://neprokin.com/" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="neprokin.com" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary" />
+		<meta property="twitter:url" content="https://neprokin.com/" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		
+		<!-- Additional SEO -->
+		<meta name="author" content="Stas Neprokin" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href="https://neprokin.com/" />
+		
 		<!-- IBM Plex Sans Font -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
