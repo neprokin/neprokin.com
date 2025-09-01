@@ -1,7 +1,8 @@
 {
-  "name": "y",
+  "name": "neprokin-com",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Personal website powered by Obsidian and Astro with custom UI-kit",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

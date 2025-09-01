@@ -44,7 +44,7 @@ export default defineConfig({
       }],
     ],
     rehypePlugins: [
-      // Добавим rehype-highlight после настройки  
+      'rehype-highlight'
     ]
   },
   

@@ -25,7 +25,9 @@ const { title, description = "Simple Design of Complex Systems" } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;500&display=swap" rel="stylesheet">
 		
 		<!-- UI Kit Styles -->
-		<link rel="stylesheet" href="/src/styles/globals.css">
+		<style is:global>
+			@import '../styles/globals.css';
+		</style>
 	</head>
 	<body>
 		<slot />

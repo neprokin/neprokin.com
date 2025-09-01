@@ -20,17 +20,17 @@ const regularPosts = publishedPosts.filter(post => !post.data.featured);
 >
   <main class="container">
     <!-- Header -->
-    <header style="padding: 64px 0 48px; text-align: center;">
-      <h1 class="h1 text-accent" style="margin-bottom: 16px;">Blog</h1>
-      <p class="body-large text-secondary" style="margin-bottom: 32px;">
+    <header class="page-header">
+      <h1 class="h1 text-accent mb-4">Blog</h1>
+      <p class="body-large text-secondary mb-8">
         Thoughts on design systems, product design, and building better user experiences
       </p>
     </header>
 
     <!-- Featured Posts -->
     {featuredPosts.length > 0 && (
-      <section style="margin-bottom: 64px;">
-        <h2 class="h2" style="margin-bottom: 32px;">Featured Articles</h2>
+      <section class="section">
+        <h2 class="h2 mb-8">Featured Articles</h2>
         <div class="grid grid-1">
           {featuredPosts.map((post) => {
             const publishDate = new Intl.DateTimeFormat('en-US', {
@@ -41,22 +41,22 @@ const regularPosts = publishedPosts.filter(post => !post.data.featured);
             
             return (
               <Card>
-                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px;">
+                <div class="card-header">
                   <Badge>Featured</Badge>
                   <span class="body text-secondary">{publishDate}</span>
                 </div>
-                <h3 class="body-large" style="margin-bottom: 12px;">
+                <h3 class="body-large mb-3">
                   <a href={`/blog/${post.slug}`} class="text-accent">{post.data.title}</a>
                 </h3>
-                <p class="body text-secondary" style="margin-bottom: 16px;">{post.data.description}</p>
+                <p class="body text-secondary card-content">{post.data.description}</p>
                 {post.data.tags && (
-                  <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                  <div class="badge-group mb-4">
                     {post.data.tags.slice(0, 3).map((tag) => (
                       <Badge>{tag}</Badge>
                     ))}
                   </div>
                 )}
-                <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="card-footer">
                   <a href={`/blog/${post.slug}`} class="body text-accent">Read Article →</a>
                   {post.data.readingTime && (
                     <span class="body text-secondary">{post.data.readingTime} min read</span>
@@ -71,8 +71,8 @@ const regularPosts = publishedPosts.filter(post => !post.data.featured);
 
     <!-- Regular Posts -->
     {regularPosts.length > 0 && (
-      <section style="margin-bottom: 64px;">
-        <h2 class="h2" style="margin-bottom: 32px;">All Articles</h2>
+      <section class="section">
+        <h2 class="h2 mb-8">All Articles</h2>
         <div class="grid grid-1">
           {regularPosts.map((post) => {
             const publishDate = new Intl.DateTimeFormat('en-US', {
@@ -83,15 +83,15 @@ const regularPosts = publishedPosts.filter(post => !post.data.featured);
             
             return (
               <Card>
-                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                <div class="flex justify-between items-start mb-3">
                   <h3 class="body-large">
                     <a href={`/blog/${post.slug}`} class="text-accent">{post.data.title}</a>
                   </h3>
                   <span class="body text-secondary">{publishDate}</span>
                 </div>
-                <p class="body text-secondary" style="margin-bottom: 16px;">{post.data.description}</p>
+                <p class="body text-secondary card-content">{post.data.description}</p>
                 {post.data.tags && (
-                  <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <div class="badge-group">
                     {post.data.tags.slice(0, 4).map((tag) => (
                       <Badge>{tag}</Badge>
                     ))}
@@ -106,14 +106,14 @@ const regularPosts = publishedPosts.filter(post => !post.data.featured);
 
     <!-- Empty State -->
     {publishedPosts.length === 0 && (
-      <section style="padding: 64px 0; text-align: center;">
-        <h2 class="h2 text-secondary" style="margin-bottom: 16px;">No posts yet</h2>
+      <section class="section text-center">
+        <h2 class="h2 text-secondary mb-4">No posts yet</h2>
         <p class="body text-secondary">Articles will appear here when published.</p>
       </section>
     )}
 
     <!-- Navigation -->
-    <nav style="padding: 32px 0; border-top: 1px solid var(--border-color); text-align: center;">
+    <nav class="content-nav">
       <a href="/" class="body text-accent">← Back to Home</a>
     </nav>
   </main>

@@ -1,0 +1,40 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const currentYear = new Date().getFullYear();
+const startYear = 2009;
+const yearRange = startYear === currentYear ? currentYear : `${startYear}–${currentYear}`;
+
+const contactLinks = [
+  {
+    href: 'mailto:stas.neprokin@gmail.com',
+    label: 'stas.neprokin@gmail.com',
+    type: 'email'
+  },
+  {
+    href: 'https://telegram.me/neprokin',
+    label: 'telegram.me/neprokin',
+    type: 'social'
+  }
+];
+---
+
+<footer class={`page-footer ${className}`}>
+  <p class="body text-secondary mb-4">© {yearRange}</p>
+  <div class="nav-links justify-center">
+    {contactLinks.map(link => (
+      <a 
+        href={link.href} 
+        class="body text-accent"
+        target={link.type === 'social' ? '_blank' : undefined}
+        rel={link.type === 'social' ? 'noopener noreferrer' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</footer>

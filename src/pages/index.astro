@@ -8,10 +8,10 @@ import Badge from '../components/ui/Badge.astro';
 <Layout title="Neprokin — Simple Design of Complex Systems" description="I develop a system design based on data, user tasks, and common sense">
 	<main class="container">
 		<!-- Navigation -->
-		<nav style="padding: 24px 0; border-bottom: 1px solid var(--border-color); margin-bottom: 40px;">
-			<div style="display: flex; justify-content: space-between; align-items: center;">
+		<nav class="page-nav">
+			<div class="flex justify-between items-center">
 				<a href="/" class="body-large text-accent">neprokin</a>
-				<div style="display: flex; gap: 24px;">
+				<div class="nav-links">
 					<a href="/blog" class="body text-secondary">Blog</a>
 					<a href="/projects" class="body text-secondary">Projects</a>
 					<a href="mailto:stas.neprokin@gmail.com" class="body text-accent">Contact</a>
@@ -20,11 +20,11 @@ import Badge from '../components/ui/Badge.astro';
 		</nav>
 
 		<!-- Header Section -->
-		<header style="padding: 40px 0 48px; text-align: center;">
-			<h1 class="h1 text-accent" style="margin-bottom: 16px;">Simple Design of Complex Systems</h1>
-			<p class="body-large text-secondary" style="margin-bottom: 32px;">I develop a system design based on data, user tasks, and common sense</p>
+		<header class="page-header">
+			<h1 class="h1 text-accent mb-4">Simple Design of Complex Systems</h1>
+			<p class="body-large text-secondary mb-8">I develop a system design based on data, user tasks, and common sense</p>
 			
-			<div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
+			<div class="badge-group justify-center mb-8">
 				<Badge>SaaS</Badge>
 				<Badge>Design Systems</Badge>
 				<Badge>Support for Startups</Badge>
@@ -34,48 +34,48 @@ import Badge from '../components/ui/Badge.astro';
 		</header>
 
 		<!-- Process Section -->
-		<section style="padding: 48px 0; text-align: center;">
-			<h2 class="h2" style="margin-bottom: 24px;">Design Process</h2>
-			<p class="body text-secondary" style="max-width: 800px; margin: 0 auto;">
+		<section class="section text-center">
+			<h2 class="h2 mb-6">Design Process</h2>
+			<p class="body text-secondary max-w-lg mx-auto">
 				Concept → Goals → Research → Roles and Context → Tasks → Scenarios → Architecture → Prototype → Interface → Handover to Development → Authorial Supervision
 			</p>
 		</section>
 
 		<!-- Portfolio Section -->
-		<section style="padding: 48px 0;">
-			<h2 class="h2" style="margin-bottom: 32px; text-align: center;">Large companies and startups trust me</h2>
+		<section class="section">
+			<h2 class="h2 mb-8 text-center">Large companies and startups trust me</h2>
 			
-			<div class="grid grid-2" style="max-width: 800px; margin: 0 auto;">
+			<div class="grid grid-2 max-w-lg mx-auto">
 				<Card>
-					<h3 class="body-large" style="margin-bottom: 8px;">Urbi</h3>
-					<p class="body text-secondary" style="margin-bottom: 12px;">Senior Product Designer</p>
+					<h3 class="body-large mb-2">Urbi</h3>
+					<p class="body text-secondary mb-3">Senior Product Designer</p>
 					<Badge>Current</Badge>
 				</Card>
 				
 				<Card>
-					<h3 class="body-large" style="margin-bottom: 8px;">M2 Pro</h3>
-					<p class="body text-secondary" style="margin-bottom: 12px;">Senior Product Designer</p>
+					<h3 class="body-large mb-2">M2 Pro</h3>
+					<p class="body text-secondary mb-3">Senior Product Designer</p>
 					<Badge>2 years</Badge>
 				</Card>
 				
 				<Card>
-					<h3 class="body-large" style="margin-bottom: 8px;">VK Tax Compliance</h3>
-					<p class="body text-secondary" style="margin-bottom: 12px;">Lead Product Designer</p>
+					<h3 class="body-large mb-2">VK Tax Compliance</h3>
+					<p class="body text-secondary mb-3">Lead Product Designer</p>
 					<Badge>1 year</Badge>
 				</Card>
 				
 				<Card>
-					<h3 class="body-large" style="margin-bottom: 8px;">Skipp Pro</h3>
-					<p class="body text-secondary" style="margin-bottom: 12px;">Lead Product Designer</p>
+					<h3 class="body-large mb-2">Skipp Pro</h3>
+					<p class="body text-secondary mb-3">Lead Product Designer</p>
 					<Badge>2 years</Badge>
 				</Card>
 			</div>
 		</section>
 
 		<!-- Footer Section -->
-		<footer style="padding: 48px 0; text-align: center; border-top: 1px solid var(--border-color);">
-			<p class="body text-secondary" style="margin-bottom: 16px;">© 2009–2024</p>
-			<div style="display: flex; gap: 24px; justify-content: center;">
+		<footer class="page-footer">
+			<p class="body text-secondary mb-4">© 2009–2024</p>
+			<div class="nav-links justify-center">
 				<a href="mailto:stas.neprokin@gmail.com" class="body text-accent">stas.neprokin@gmail.com</a>
 				<a href="https://telegram.me/neprokin" class="body text-accent">telegram.me/neprokin</a>
 			</div>

@@ -1,0 +1,32 @@
+---
+export interface Props {
+  currentPath?: string;
+  class?: string;
+}
+
+const { currentPath = '', class: className = '' } = Astro.props;
+
+const navItems = [
+  { href: '/blog', label: 'Blog' },
+  { href: '/projects', label: 'Projects' },
+  { href: 'mailto:stas.neprokin@gmail.com', label: 'Contact', external: true }
+];
+---
+
+<nav class={`page-nav ${className}`}>
+  <div class="flex justify-between items-center">
+    <a href="/" class="body-large text-accent">neprokin</a>
+    <div class="nav-links">
+      {navItems.map(item => (
+        <a 
+          href={item.href} 
+          class={`body ${currentPath.startsWith(item.href) ? 'text-accent' : 'text-secondary'}`}
+          target={item.external ? '_blank' : undefined}
+          rel={item.external ? 'noopener noreferrer' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>

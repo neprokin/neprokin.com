@@ -1,0 +1,33 @@
+# Security Headers для Netlify
+/*
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src 'self' fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'
+  
+  # Защита от clickjacking
+  X-Frame-Options: DENY
+  
+  # Защита от MIME-sniffing
+  X-Content-Type-Options: nosniff
+  
+  # Referrer Policy
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Permissions Policy
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  
+  # Strict Transport Security (уже настроен в baseline)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Убираем информацию о сервере
+  Server: 
+  X-Powered-By:
+
+# Дополнительные заголовки для статических ресурсов
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.svg
+  Cache-Control: public, max-age=31536000
+
+/images/*
+  Cache-Control: public, max-age=31536000
