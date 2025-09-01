@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import remarkWikiLink from 'remark-wiki-link';
+import rehypeHighlight from 'rehype-highlight';
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,7 +45,7 @@ export default defineConfig({
       }],
     ],
     rehypePlugins: [
-      'rehype-highlight'
+      rehypeHighlight
     ]
   },
   

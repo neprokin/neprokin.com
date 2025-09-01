@@ -52,8 +52,20 @@ const about = defineCollection({
   }),
 });
 
+// Схема для ассетов (изображения, файлы)
+const assets = defineCollection({
+  type: 'data',
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    type: z.enum(['image', 'document', 'video', 'other']).default('other'),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
 export const collections = {
   blog,
   projects, 
   about,
+  assets,
 };
