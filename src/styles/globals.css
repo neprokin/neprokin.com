@@ -66,28 +66,16 @@
 }
 
 /* === FONT DISPLAY OPTIMIZATION === */
-@font-face {
-  font-family: 'IBM Plex Sans';
-  font-display: swap;
-}
+/* Moved to critical CSS in Layout.astro for better performance */
 
 /* === BASE STYLES === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Core styles moved to critical CSS - keeping only extended styles */
 
 html {
-  font-family: var(--font-family);
-  background-color: var(--bg);
-  color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
