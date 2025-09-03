@@ -15,7 +15,10 @@ const navItems = [
 
 <nav class={`page-nav ${className}`}>
   <div class="flex justify-between items-center">
-    <a href="/" class="body-large text-accent">neprokin</a>
+    <a href="/" class="flex items-center gap-3 body-large text-accent logo-link">
+      <img src="/logo-nav.svg" alt="Neprokin Logo" width="24" height="24" class="logo-icon">
+      neprokin
+    </a>
     <div class="nav-links">
       {navItems.map(item => (
         <a 
