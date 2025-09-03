@@ -309,8 +309,9 @@ body {
 }
 
 .page-nav {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border-color);
+  padding-top: 72px; /* Отступ от верха страницы */
+  padding-bottom: 24px;
+  /* Убираем нижнюю границу */
   margin-bottom: 40px;
 }
 
