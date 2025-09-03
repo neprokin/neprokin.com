@@ -362,16 +362,16 @@ body {
 
 .logo-icon {
   transition: transform 0.2s ease;
-  filter: brightness(0) saturate(100%);
+  /* Убираем фильтры - используем оригинальные цвета SVG */
 }
 
 .logo-link:hover .logo-icon {
   transform: scale(1.1);
 }
 
-/* Dark theme logo adjustments */
+/* Dark theme logo adjustments - будет реализовано через отдельный SVG */
 [data-theme="dark"] .logo-icon {
-  filter: brightness(0) saturate(100%) invert(1);
+  /* Пока используем оригинальный логотип */
 }
 
 .badge-group {
