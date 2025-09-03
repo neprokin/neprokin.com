@@ -213,15 +213,30 @@ body {
 }
 
 /* === LAYOUT UTILITIES === */
-.container {
-  max-width: 1400px;
+
+/* Широкий контейнер для шапки/футера */
+.container-wide {
+  max-width: none;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 max(72px, 5vw); /* 72px минимум, адаптивно растет */
 }
 
+/* Узкий контейнер для основного контента */
+.container {
+  max-width: 800px; /* Уже чем шапка, как на WordPress */
+  margin: 0; /* Убираем центрирование */
+  padding: 0 max(72px, 5vw); /* Те же отступы что у шапки */
+}
+
+/* Мобильная адаптация */
 @media (max-width: 768px) {
+  .container-wide {
+    padding: 0 max(24px, 4vw);
+  }
+  
   .container {
-    padding: 0 16px;
+    max-width: none;
+    padding: 0 max(24px, 4vw);
   }
 }
 
@@ -304,21 +319,22 @@ body {
 }
 
 .page-header {
-  padding: 64px 0 48px;
-  text-align: center;
+  padding: 0 0 48px; /* Убираем верхний padding - отступ уже есть от nav */
+  text-align: left; /* По умолчанию левое выравнивание */
 }
 
 .page-nav {
   padding-top: 72px; /* Отступ от верха страницы */
   padding-bottom: 24px;
   /* Убираем нижнюю границу */
-  margin-bottom: 40px;
+  margin-bottom: 132px; /* Увеличенный отступ до контента */
 }
 
 .page-footer {
   padding: 48px 0;
   text-align: center;
   border-top: 1px solid var(--border-color);
+  /* Используем широкий контейнер как у шапки */
 }
 
 .content-nav {
@@ -390,7 +406,12 @@ body {
 /* Responsive utilities */
 @media (max-width: 768px) {
   .page-header {
-    padding: 32px 0 24px;
+    padding: 0 0 24px; /* Адаптивный header */
+  }
+  
+  .page-nav {
+    padding-top: 32px; /* Меньший отступ на мобильных */
+    margin-bottom: 64px; /* Меньший отступ до контента */
   }
   
   .nav-links {
