@@ -7,7 +7,7 @@ export function processObsidianLinks(content: string): string {
   // Паттерн для [[ссылка|текст]] или [[ссылка]]
   const wikiLinkPattern = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
   
-  return content.replace(wikiLinkPattern, (match, link, alias) => {
+  return content.replace(wikiLinkPattern, (_match, link, alias) => {
     const displayText = alias || link;
     const slug = link.toLowerCase().replace(/\s+/g, '-');
     
@@ -53,8 +53,8 @@ export function extractHeadings(content: string): Array<{level: number, text: st
   let match;
   
   while ((match = headingPattern.exec(content)) !== null) {
-    const level = match[1].length;
-    const text = match[2].trim();
+    const level = match?.[1]?.length || 1;
+    const text = match?.[2]?.trim() || '';
     const slug = text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
     
     headings.push({ level, text, slug });
@@ -68,7 +68,7 @@ export function processObsidianImages(content: string): string {
   // Паттерн для ![[image.jpg|alt text]]
   const imagePattern = /!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
   
-  return content.replace(imagePattern, (match, imagePath, altText) => {
+  return content.replace(imagePattern, (_match, imagePath, altText) => {
     const alt = altText || imagePath;
     const src = `/images/${imagePath}`;
     return `![${alt}](${src})`;

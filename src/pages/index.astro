@@ -1,27 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/layout/Navigation.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Badge from '../components/ui/Badge.astro';
 ---
 
 <Layout title="Neprokin — Simple Design of Complex Systems" description="I develop a system design based on data, user tasks, and common sense">
-	<!-- Navigation - широкий контейнер -->
-	<nav class="page-nav">
-		<div class="container-wide">
-			<div class="flex justify-between items-center">
-				<a href="/" class="flex items-center text-accent logo-link">
-					<img src="/logo-nav.svg" alt="Neprokin Logo" width="24" height="24" class="logo-icon">
-					<span class="body">neprokin</span>
-				</a>
-				<div class="nav-links">
-					<a href="/blog" class="body text-secondary">Blog</a>
-					<a href="/projects" class="body text-secondary">Projects</a>
-					<a href="mailto:stas.neprokin@gmail.com" class="body text-accent">Contact</a>
-				</div>
-			</div>
-		</div>
-	</nav>
+	<!-- Navigation - используем компонент -->
+	<div class="container-wide">
+		<Navigation />
+	</div>
 
 	<!-- Main Content - узкий контейнер, выровнен по левому краю -->
 	<main class="container">
@@ -30,13 +19,14 @@ import Badge from '../components/ui/Badge.astro';
 			<h1 class="h1 text-accent mb-4">Simple Design of Complex Systems</h1>
 			<p class="body-large text-secondary mb-8">I develop a system design based on data, user tasks, and common sense</p>
 			
-			<div class="badge-group mb-8">
-				<Badge>SaaS</Badge>
-				<Badge>Design Systems</Badge>
-				<Badge>Support for Startups</Badge>
+			<div class="flex items-center gap-4 flex-wrap mb-8">
+				<div class="badge-group">
+					<Badge>SaaS</Badge>
+					<Badge>Design Systems</Badge>
+					<Badge>Support for Startups</Badge>
+				</div>
+				<Button href="https://telegram.me/neprokin">Write in Telegram</Button>
 			</div>
-			
-			<Button href="https://telegram.me/neprokin">Write in Telegram</Button>
 		</header>
 
 		<!-- Process Section -->

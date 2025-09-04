@@ -49,18 +49,18 @@ import '../styles/globals.css';
 			* { margin: 0; padding: 0; box-sizing: border-box; }
 			
 			:root {
-				--white: #FDFDFD; --light: #F8F8F8; --border: #F0F0F0;
-				--text-secondary: #6B6B6B; --dark: #212121; --black: #0A0A0A;
-				--bg: var(--white); --surface: var(--light); --border-color: var(--border);
-				--text-muted: var(--text-secondary); --text: var(--dark); --accent: var(--black);
+				/* Базовые цвета - единственный источник правды */
+				--white: #FDFDFD; --black: #0A0A0A;
+				/* Семантические цвета */
+				--bg: var(--white); --accent: var(--black);
+				/* Критическая типографика */
 				--font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 			}
 			
 			/* System fonts - instant loading, no external requests */
 			
 			[data-theme="dark"] {
-				--bg: var(--black); --surface: var(--dark); --text: var(--light);
-				--accent: var(--white); --border-color: #1A1A1A; --text-muted: #9B9B9B;
+				--bg: var(--black); --accent: var(--white);
 			}
 			
 			html { font-family: var(--font-family); background-color: var(--bg); color: var(--text); }
@@ -69,7 +69,7 @@ import '../styles/globals.css';
 			.h1 { font-weight: 300; font-size: 48px; line-height: 52px; color: var(--text); }
 			.h2 { font-weight: 300; font-size: 32px; line-height: 36px; color: var(--text); }
 			.body-large { font-weight: 300; font-size: 20px; line-height: 28px; color: var(--text); }
-			.body { font-weight: 500; font-size: 16px; line-height: 24px; color: var(--text); }
+			.body { font-weight: 500; font-size: 16px; line-height: 24px; }
 			
 			.text-primary { color: var(--text); }
 			.text-secondary { color: var(--text-muted); }

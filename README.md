@@ -26,7 +26,7 @@ Obsidian Vault → GitHub Repository → Vercel Build → Live Website
 ### **Технологический стек**
 - **Framework**: Astro 5.13.5 (Islands Architecture)
 - **Language**: TypeScript (строгая типизация)
-- **Styling**: Custom CSS + Utility Classes
+- **Styling**: Распределенная CSS архитектура (Critical CSS + Global Styles + Tailwind)
 - **Content**: Obsidian Markdown files
 - **Build**: Vite 5.x
 - **Hosting**: Vercel (Free Tier)
@@ -71,13 +71,37 @@ neprokin.com/
 ├── content/              # Obsidian контент (Markdown)
 ├── src/
 │   ├── components/       # Astro компоненты
-│   ├── layouts/          # Базовые лейауты
+│   │   ├── ui/          # Базовые UI элементы
+│   │   ├── layout/      # Лейаут компоненты (Navigation)
+│   │   └── content/     # Контент компоненты
+│   ├── layouts/          # Базовые лейауты (Layout.astro)
 │   ├── pages/            # Страницы сайта
-│   ├── styles/           # CSS и UI-kit
+│   ├── styles/           # CSS архитектура
+│   │   ├── globals.css  # Система дизайна
+│   │   └── ui-kit-demo.css # Preview стили
 │   └── utils/            # Утилиты
 ├── public/               # Статические файлы
 └── ui-kit-preview.html   # Интерактивный UI Kit
 ```
+
+---
+
+## 🎨 CSS Архитектура
+
+### **Распределенная система стилей**
+```
+CSS Architecture
+├── Critical CSS (Layout.astro)    # Мгновенная загрузка
+├── Global Styles (globals.css)    # Система дизайна
+├── Tailwind Config               # Utility framework
+└── UI Kit Demo                  # Preview only
+```
+
+### **Преимущества архитектуры**
+- ⚡ **Performance First** - критические стили inline
+- 📦 **Модульность** - четкое разделение ответственности
+- 📱 **Mobile-First** - responsive дизайн с hamburger меню
+- 🎨 **Design System** - система CSS переменных и spacing
 
 ---
 
@@ -103,17 +127,21 @@ neprokin.com/
 
 ## 🔧 Особенности
 
-### **Obsidian интеграция**
-- Поддержка `[[внутренних ссылок]]`
-- YAML frontmatter для метаданных  
-- Автоматическая обработка изображений
-- Синхронизация через Git
+### **Obsidian интеграция (быстрая настройка):**
+```bash
+# 1. Откройте Obsidian
+# 2. Open folder as vault → src/content/
+# 3. Создавайте .md файлы с YAML frontmatter
+# 4. Git commit + push → автодеплой на Vercel
+```
 
-### **UI Kit система**
-- CSS Custom Properties для темизации
-- Модульная сетка 4px
-- Responsive типографика
-- Интерактивные компоненты
+### **CSS Архитектура**
+- **Critical CSS** в Layout.astro - мгновенная загрузка
+- **Global Styles** в globals.css - система дизайна и компоненты
+- **Tailwind Config** - utility framework с CSS переменными
+- **Spacing система** - модульная сетка 4px
+- **Mobile-First** responsive дизайн с hamburger меню
+- **Performance** оптимизация для Lighthouse 100/100
 
 ### **SEO оптимизация**
 - Автогенерация meta tags
@@ -198,21 +226,23 @@ git push origin main
 ### **Структура проекта (обновлено)**
 ```
 neprokin.com/
+├── docs/                   # 📚 Вся техническая документация
+│   ├── README.md          # Индекс документации
+│   ├── CSS_ARCHITECTURE.md # Архитектура CSS
+│   ├── QUICK_REFERENCE.md # Быстрый справочник
+│   └── [другие .md файлы] # Техническая документация
 ├── src/
-│   ├── components/
-│   │   ├── content/         # BlogCard, ProjectCard
-│   │   ├── layout/          # Navigation, Footer, PageHeader  
-│   │   └── ui/              # Button, Card, Badge
-│   ├── layouts/             # Layout.astro
-│   ├── pages/               # Страницы сайта
-│   ├── styles/              # globals.css, ui-kit-demo.css
-│   ├── types/               # TypeScript типы
-│   └── utils/               # content.ts, obsidian.ts
-├── public/
-│   ├── _headers            # Security Headers (Netlify)
-│   └── favicon.svg
-├── vercel.json             # Vercel конфигурация
-└── ui-kit-preview.html     # UI Kit preview
+│   ├── components/        # Переиспользуемые компоненты
+│   │   ├── ui/           # Button, Card, Badge
+│   │   ├── layout/       # Navigation, Footer
+│   │   └── content/      # BlogCard, ProjectCard
+│   ├── content/          # Markdown контент (Obsidian)
+│   ├── pages/            # Astro страницы + /uikit
+│   ├── styles/           # CSS архитектура (globals.css)
+│   └── layouts/          # Layout.astro (Critical CSS)
+├── public/               # Статические файлы
+├── vercel.json          # Vercel конфигурация
+└── README.md            # Главная документация (этот файл)
 ```
 
 ---
@@ -224,6 +254,17 @@ neprokin.com/
 - **Website**: https://neprokin.com
 - **GitHub**: https://github.com/neprokin/neprokin.com
 - **Live Site**: https://neprokincom.vercel.app
+
+---
+
+## 📚 Документация
+
+### **Cursor-integrated документация (всегда под рукой в IDE):**
+- **🎨 [/uikit](http://localhost:4321/uikit)** - живая дизайн-система (основной инструмент)
+- **📝 .cursor/notepads/css-architecture.md** - архитектура CSS
+- **🚀 .cursor/notepads/deployment.md** - деплой и настройка  
+- **🔧 .cursor/notepads/development-workflow.md** - ежедневный workflow
+- **⚡ .cursor/notepads/quick-reference.md** - быстрый справочник CSS
 
 ---
 

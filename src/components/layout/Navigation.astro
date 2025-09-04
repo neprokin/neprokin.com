@@ -1,10 +1,9 @@
 ---
 export interface Props {
-  currentPath?: string;
   class?: string;
 }
 
-const { currentPath = '', class: className = '' } = Astro.props;
+const { class: className = '' } = Astro.props;
 
 const navItems = [
   { href: '/blog', label: 'Blog' },
@@ -17,13 +16,24 @@ const navItems = [
   <div class="flex justify-between items-center">
     <a href="/" class="flex items-center text-accent logo-link">
       <img src="/logo-nav.svg" alt="Neprokin Logo" width="24" height="24" class="logo-icon">
-      <span class="body">neprokin</span>
+      <span class="body text-accent">neprokin</span>
     </a>
-    <div class="nav-links">
+    
+    <!-- Mobile menu button -->
+    <button class="nav-toggle" aria-label="Toggle navigation" id="nav-toggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    
+    <!-- Navigation links -->
+    <div class="nav-links" id="nav-links">
       {navItems.map(item => (
         <a 
           href={item.href} 
-          class={`body ${currentPath.startsWith(item.href) ? 'text-accent' : 'text-secondary'}`}
+          class="body text-accent nav-item"
           target={item.external ? '_blank' : undefined}
           rel={item.external ? 'noopener noreferrer' : undefined}
         >
@@ -33,3 +43,36 @@ const navItems = [
     </div>
   </div>
 </nav>
+
+<script>
+  // Mobile navigation toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-open');
+      
+      // Update aria-expanded for accessibility
+      const isOpen = navLinks.classList.contains('nav-open');
+      navToggle.setAttribute('aria-expanded', isOpen.toString());
+    });
+    
+    // Close mobile menu when clicking on a link
+    const navItems = navLinks.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navToggle.contains(e.target as Node) && !navLinks.contains(e.target as Node)) {
+        navLinks.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

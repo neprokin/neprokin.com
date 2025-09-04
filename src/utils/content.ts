@@ -2,7 +2,7 @@
  * Утилиты для работы с контентом - расширение obsidian.ts
  */
 
-import type { CollectionEntry } from 'astro:content';
+// import type { CollectionEntry } from 'astro:content'; // Unused import
 import type { 
   BlogPost, 
   Project, 

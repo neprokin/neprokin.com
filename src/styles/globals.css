@@ -1,30 +1,24 @@
 /* ===== UI KIT CSS SYSTEM ===== */
 
-/* === COLOR SYSTEM === */
+/* === EXTENDED COLOR SYSTEM === */
 :root {
-  /* Базовые цвета */
-  --white: #FDFDFD;
+  /* Расширенные цвета (базовые --white, --black определены в Layout.astro) */
   --light: #F8F8F8;
   --border: #F0F0F0;
   --text-secondary: #6B6B6B;
   --dark: #212121;
-  --black: #0A0A0A;
   
-  /* Семантические переменные - светлая тема */
-  --bg: var(--white);
+  /* Расширенные семантические переменные */
   --surface: var(--light);
   --border-color: var(--border);
   --text-muted: var(--text-secondary);
   --text: var(--dark);
-  --accent: var(--black);
 }
 
-/* Темная тема */
+/* Темная тема - расширенные переопределения */
 [data-theme="dark"] {
-  --bg: var(--black);
   --surface: var(--dark);
   --text: var(--light);
-  --accent: var(--white);
   --border-color: #1A1A1A;
   --text-muted: #9B9B9B;
 }
@@ -49,6 +43,29 @@
   /* Толщина шрифта */
   --font-weight-light: 300;
   --font-weight-medium: 500;
+}
+
+/* === SPACING SYSTEM === */
+:root {
+  /* Модульная сетка 4px */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-5xl: 96px;
+  --space-6xl: 128px;
+}
+
+/* === BREAKPOINTS === */
+:root {
+  --bp-mobile: 480px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  --bp-wide: 1400px;
 }
 
 /* Responsive типографика */
@@ -109,7 +126,7 @@ body {
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
-  color: var(--text);
+  /* Цвет наследуется или задается через utility классы */
 }
 
 /* Цветовые модификаторы */
@@ -125,14 +142,15 @@ body {
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
-  padding: 12px 24px;
+  padding: var(--space-sm) var(--space-lg); /* Одинаковые отступы с badge: 8px 16px */
   border: 1px solid;
-  border-radius: 8px;
+  border-radius: var(--space-sm); /* 8px - кратно 4px grid */
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  height: fit-content;
 }
 
 .btn-primary {
@@ -202,14 +220,20 @@ body {
 /* Бейджи */
 .badge {
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: var(--font-size-body);
   font-weight: var(--font-weight-medium);
-  padding: 4px 12px;
-  border-radius: 16px;
+  padding: var(--space-sm) var(--space-lg); /* Одинаковые отступы с button: 8px 16px */
+  border-radius: var(--space-sm); /* 8px - кратно 4px grid */
   background-color: var(--surface);
-  color: var(--text);
+  color: var(--text-muted);
   border: 1px solid var(--border-color);
   display: inline-block;
+  transition: all 0.2s ease;
+  height: fit-content;
+}
+
+.badge:hover {
+  background-color: var(--border-color);
 }
 
 /* === LAYOUT UTILITIES === */
@@ -324,10 +348,10 @@ body {
 }
 
 .page-nav {
-  padding-top: 72px; /* Отступ от верха страницы */
-  padding-bottom: 24px;
-  /* Убираем нижнюю границу */
-  margin-bottom: 132px; /* Увеличенный отступ до контента */
+  position: relative;
+  padding-block-start: var(--space-5xl); /* 72px - логическое свойство */
+  padding-block-end: var(--space-xl); /* 24px */
+  margin-block-end: var(--space-6xl); /* 132px - увеличенный отступ */
 }
 
 .page-footer {
@@ -363,7 +387,71 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: var(--space-xl);
+  margin-inline-start: auto; /* RTL support */
+}
+
+.nav-item {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--space-sm); /* 8px - кратно 4px grid */
+}
+
+.nav-item:hover {
+  opacity: 0.7;
+  background-color: var(--surface);
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-sm);
+  color: var(--accent);
+}
+
+.nav-toggle:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg);
+    border-top: 1px solid var(--border-color);
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-lg);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links.nav-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-item {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .nav-item:last-child {
+    border-bottom: none;
+  }
 }
 
 /* Logo styles */
@@ -393,8 +481,9 @@ body {
 
 .badge-group {
   display: flex;
-  gap: 8px;
+  gap: var(--space-sm);
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .button-group {

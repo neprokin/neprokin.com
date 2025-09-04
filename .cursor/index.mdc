@@ -8,11 +8,18 @@
 - Используй современные практики веб-разработки 2025
 
 ## Архитектура проекта
-- **Astro 4.x** для статической генерации и Islands Architecture
+- **Astro 5.x** для статической генерации и Islands Architecture
 - **Obsidian** как headless CMS с Markdown файлами
-- **Tailwind CSS + CSS Variables** для кастомного UI-kit
+- **Распределенная CSS архитектура**: Critical CSS (Layout.astro) + Global Styles (globals.css) + Tailwind
 - **TypeScript** для всего кода
 - **Vite** как bundler и dev server
+
+## CSS Архитектура
+- **Critical CSS** в Layout.astro - мгновенная загрузка
+- **Global Styles** в globals.css - система дизайна и компоненты
+- **Tailwind Config** - utility framework с CSS переменными
+- **Spacing система** - модульная сетка 4px через CSS переменные
+- **Mobile-First** responsive дизайн с логическими свойствами
 
 ## Стиль кода
 - Именуй компоненты в PascalCase (Button, Header, BlogPost)
@@ -29,9 +36,8 @@ src/
 │   ├── layout/          # Лейауты (Header, Footer, Navigation)
 │   └── content/         # Контент компоненты (BlogPost, ProjectCard)
 ├── styles/              # Стили и UI-kit
-│   ├── base.css         # CSS переменные и базовые стили
-│   ├── components.css   # Стили компонентов
-│   └── utilities.css    # Utility классы
+│   ├── globals.css      # Система дизайна и компонентные стили
+│   └── ui-kit-demo.css  # Preview стили (не для продакшена)
 ├── pages/               # Astro страницы
 ├── layouts/             # Базовые лейауты
 ├── utils/               # Утилиты и хелперы

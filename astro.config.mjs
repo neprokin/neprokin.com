@@ -31,7 +31,7 @@ export default defineConfig({
   
   // Markdown настройки
   markdown: {
-    drafts: true,
+    // drafts: true, // Не поддерживается в новой версии Astro
     shikiConfig: {
       theme: 'github-light',
       wrap: true

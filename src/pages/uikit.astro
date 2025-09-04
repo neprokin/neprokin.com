@@ -1,0 +1,595 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/layout/Navigation.astro';
+import Button from '../components/ui/Button.astro';
+import Badge from '../components/ui/Badge.astro';
+import Card from '../components/ui/Card.astro';
+---
+
+<Layout 
+  title="UI Kit - neprokin.com | Complete Design System" 
+  description="Complete design system showing all CSS variables and components from single sources of truth"
+>
+  <!-- Navigation -->
+  <div class="container-wide">
+    <Navigation />
+  </div>
+
+  <main class="container">
+    <!-- Header -->
+    <header class="page-header text-center" style="margin-bottom: 64px;">
+      <h1 class="h1 text-accent" style="margin-bottom: 16px;">UI Kit - neprokin.com</h1>
+      <p class="body-large text-secondary" style="margin-bottom: 8px;">Complete Design System from Single Sources of Truth</p>
+      <p class="body text-secondary">🔄 Auto-updates when CSS variables change in dev mode</p>
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+        <button 
+          class="btn btn-ghost" 
+          onclick="toggleTheme()"
+          id="theme-toggle"
+        >
+          🌙 Toggle Theme
+        </button>
+        <button 
+          class="btn btn-secondary" 
+          onclick="refreshUIKit()"
+          title="Manually refresh UI Kit if auto-update fails"
+        >
+          🔄 Refresh UI Kit
+        </button>
+        <button 
+          class="btn btn-secondary" 
+          onclick="window.open('/uikit', '_blank')"
+          title="Open UI Kit in new tab for comparison"
+        >
+          🪟 New Tab
+        </button>
+      </div>
+    </header>
+
+    <!-- CRITICAL CSS VARIABLES (Layout.astro) -->
+    <section class="kit-section">
+      <div class="kit-header">
+        <h2 class="h2 text-accent" style="margin-bottom: 8px;">
+          🚀 Critical CSS Variables 
+          <span class="source-indicator critical">Layout.astro</span>
+        </h2>
+        <p class="body text-secondary">Критические переменные для мгновенной загрузки (inline в &lt;head&gt;)</p>
+      </div>
+      
+      <!-- Base Colors -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Base Colors</h3>
+      <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 32px;">
+        <div class="demo-item">
+          <div class="demo-label">--white: #FDFDFD</div>
+          <div class="color-swatch" style="background: #FDFDFD;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--black: #0A0A0A</div>
+          <div class="color-swatch" style="background: #0A0A0A;"></div>
+        </div>
+      </div>
+      
+      <!-- Semantic Colors -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Semantic Colors</h3>
+      <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 32px;">
+        <div class="demo-item">
+          <div class="demo-label">--bg: var(--white)</div>
+          <div class="color-swatch" style="background: var(--bg);"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--accent: var(--black)</div>
+          <div class="color-swatch" style="background: var(--accent);"></div>
+        </div>
+      </div>
+      
+      <!-- Critical Typography -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Critical Typography</h3>
+      <div class="demo-item">
+        <div class="demo-label">--font-family: system-ui, -apple-system, sans-serif</div>
+        <p class="body">Sample text with system font family</p>
+      </div>
+    </section>
+
+    <!-- EXTENDED CSS VARIABLES (globals.css) -->
+    <section class="kit-section">
+      <div class="kit-header">
+        <h2 class="h2 text-accent" style="margin-bottom: 8px;">
+          📐 Extended CSS Variables 
+          <span class="source-indicator extended">globals.css</span>
+        </h2>
+        <p class="body text-secondary">Расширенные переменные для детальной системы дизайна</p>
+      </div>
+      
+      <!-- Extended Colors -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Extended Colors</h3>
+      <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 32px;">
+        <div class="demo-item">
+          <div class="demo-label">--light: #F8F8F8</div>
+          <div class="color-swatch" style="background: #F8F8F8;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--border: #F0F0F0</div>
+          <div class="color-swatch" style="background: #F0F0F0;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--text-secondary: #6B6B6B</div>
+          <div class="color-swatch" style="background: #6B6B6B;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--dark: #212121</div>
+          <div class="color-swatch" style="background: #212121;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--surface: var(--light)</div>
+          <div class="color-swatch" style="background: var(--surface);"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--text: var(--dark)</div>
+          <div class="color-swatch" style="background: var(--text);"></div>
+        </div>
+      </div>
+      
+      <!-- Spacing System (4px grid) -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Spacing System (4px Grid)</h3>
+      <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 32px;">
+        <div class="demo-item">
+          <div class="demo-label">--space-xs: 4px</div>
+          <div style="width: 4px; height: 20px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--space-sm: 8px</div>
+          <div style="width: 8px; height: 20px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--space-md: 12px</div>
+          <div style="width: 12px; height: 20px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--space-lg: 16px</div>
+          <div style="width: 16px; height: 20px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--space-xl: 24px</div>
+          <div style="width: 24px; height: 20px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--space-2xl: 32px</div>
+          <div style="width: 32px; height: 20px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--space-3xl: 48px</div>
+          <div style="width: 48px; height: 20px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--space-6xl: 128px</div>
+          <div style="width: 128px; height: 20px; background: var(--accent); border-radius: 2px;"></div>
+        </div>
+      </div>
+      
+      <!-- Typography System -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Typography System</h3>
+      <div class="demo-grid" style="grid-template-columns: 1fr; margin-bottom: 32px;">
+        <div class="demo-item">
+          <div class="demo-label">--font-size-h1: 48px, --font-weight-light: 300</div>
+          <h1 class="h1 text-accent">Sample H1 Heading</h1>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--font-size-h2: 32px, --font-weight-light: 300</div>
+          <h2 class="h2 text-accent">Sample H2 Heading</h2>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--font-size-body-large: 20px, --font-weight-light: 300</div>
+          <p class="body-large text-secondary">Sample body large text for leads and descriptions</p>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--font-size-body: 16px, --font-weight-medium: 500</div>
+          <p class="body text-primary">Sample body text for regular content and navigation</p>
+        </div>
+      </div>
+      
+      <!-- Breakpoints -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Breakpoints</h3>
+      <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="demo-item">
+          <div class="demo-label">--bp-mobile: 480px</div>
+          <p class="body text-secondary">Small phones</p>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--bp-tablet: 768px</div>
+          <p class="body text-secondary">Tablets</p>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--bp-desktop: 1024px</div>
+          <p class="body text-secondary">Desktop</p>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">--bp-wide: 1400px</div>
+          <p class="body text-secondary">Large screens</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UI COMPONENTS -->
+    <section class="kit-section">
+      <div class="kit-header">
+        <h2 class="h2 text-accent" style="margin-bottom: 8px;">🧩 UI Components</h2>
+        <p class="body text-secondary">Переиспользуемые компоненты с унифицированными размерами</p>
+      </div>
+      
+      <!-- Buttons -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Buttons</h3>
+      <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-bottom: 32px;">
+        <div class="demo-item">
+          <div class="demo-label">Primary Button</div>
+          <Button variant="primary">Primary Button</Button>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">Secondary Button</div>
+          <Button variant="secondary">Secondary Button</Button>
+        </div>
+        <div class="demo-item">
+          <div class="demo-label">Ghost Button</div>
+          <Button variant="ghost">Ghost Button</Button>
+        </div>
+      </div>
+      
+      <!-- Badges -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Badges</h3>
+      <div class="demo-item" style="margin-bottom: 32px;">
+        <div class="demo-label" style="margin-bottom: 16px;">padding: var(--space-sm) var(--space-lg) = 8px 16px</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <Badge>SaaS</Badge>
+          <Badge>Design Systems</Badge>
+          <Badge>Support for Startups</Badge>
+          <Badge>Current</Badge>
+          <Badge>2 years</Badge>
+        </div>
+      </div>
+      
+      <!-- Size Comparison -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Size Comparison (Unified Heights)</h3>
+      <div class="demo-item" style="margin-bottom: 32px;">
+        <div class="demo-label" style="margin-bottom: 16px;">Badge + Button alignment (both 8px vertical padding):</div>
+        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+          <Badge>Design Systems</Badge>
+          <Button href="https://telegram.me/neprokin">Write in Telegram</Button>
+          <Badge>Support for Startups</Badge>
+          <Button variant="secondary">Contact</Button>
+        </div>
+      </div>
+      
+      <!-- Cards -->
+      <h3 class="body-large text-accent" style="margin-bottom: 16px;">Cards</h3>
+      <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <Card>
+          <h4 class="body-large text-accent" style="margin-bottom: 8px;">Project Title</h4>
+          <p class="body text-secondary" style="margin-bottom: 16px;">Project description using card component</p>
+          <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+            <Badge>TypeScript</Badge>
+            <Badge>Astro</Badge>
+          </div>
+          <Button variant="primary">View Project</Button>
+        </Card>
+        <Card>
+          <h4 class="body-large text-accent" style="margin-bottom: 8px;">Another Project</h4>
+          <p class="body text-secondary" style="margin-bottom: 16px;">Another example of card usage</p>
+          <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+            <Badge>React</Badge>
+            <Badge>Design</Badge>
+          </div>
+          <Button variant="secondary">Learn More</Button>
+        </Card>
+      </div>
+    </section>
+
+    <!-- REAL USAGE EXAMPLE -->
+    <section class="kit-section">
+      <div class="kit-header">
+        <h2 class="h2 text-accent" style="margin-bottom: 8px;">🎯 Real Usage Example</h2>
+        <p class="body text-secondary">Как компоненты используются на реальном сайте</p>
+      </div>
+      
+      <div class="demo-item">
+        <h1 class="h1 text-accent" style="margin-bottom: 16px;">Simple Design of Complex Systems</h1>
+        <p class="body-large text-secondary" style="margin-bottom: 32px;">I develop a system design based on data, user tasks, and common sense</p>
+        
+        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <Badge>SaaS</Badge>
+            <Badge>Design Systems</Badge>
+            <Badge>Support for Startups</Badge>
+          </div>
+          <Button href="https://telegram.me/neprokin">Write in Telegram</Button>
+        </div>
+        
+        <p class="body text-secondary">Все элементы используют переменные из единых источников правды!</p>
+      </div>
+    </section>
+
+    <!-- SOURCES OF TRUTH -->
+    <section class="kit-section">
+      <div class="kit-header">
+        <h2 class="h2 text-accent" style="margin-bottom: 8px;">📍 Sources of Truth</h2>
+        <p class="body text-secondary">Где найти каждую переменную</p>
+      </div>
+      
+      <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+        <div class="demo-item">
+          <h4 class="body-large text-accent" style="margin-bottom: 12px;">🚀 Layout.astro (Critical)</h4>
+          <div class="demo-label" style="margin-bottom: 8px;">src/layouts/Layout.astro, lines 52-57</div>
+          <ul class="body text-secondary" style="margin-left: 20px;">
+            <li>--white, --black (base colors)</li>
+            <li>--bg, --accent (semantic)</li>
+            <li>--font-family (critical typography)</li>
+            <li>Dark theme overrides</li>
+          </ul>
+        </div>
+        <div class="demo-item">
+          <h4 class="body-large text-accent" style="margin-bottom: 12px;">📐 globals.css (Extended)</h4>
+          <div class="demo-label" style="margin-bottom: 8px;">src/styles/globals.css, lines 4-75</div>
+          <ul class="body text-secondary" style="margin-left: 20px;">
+            <li>--light, --surface, --text (extended colors)</li>
+            <li>--space-* (spacing system)</li>
+            <li>--font-size-*, --font-weight-* (typography)</li>
+            <li>--bp-* (breakpoints)</li>
+            <li>Component styles (.btn, .badge, .nav-*)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .kit-section {
+    margin-bottom: 64px;
+    padding: 32px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--space-sm);
+    background: var(--surface);
+  }
+  
+  .kit-header {
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .demo-grid {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  
+  .demo-item {
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--space-sm);
+    background: var(--bg);
+  }
+  
+  .demo-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-family: monospace;
+  }
+  
+  .color-swatch {
+    width: 100%;
+    height: 60px;
+    border-radius: var(--space-sm);
+    margin-bottom: 8px;
+    border: 1px solid var(--border-color);
+  }
+  
+  .source-indicator {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    font-family: monospace;
+    margin-left: 8px;
+  }
+  
+  .critical { 
+    background: #ffebee; 
+    color: #c62828; 
+  }
+  
+  .extended { 
+    background: #e1f5fe; 
+    color: #0277bd; 
+  }
+</style>
+
+<script>
+  // Auto-updating UI Kit system
+  class UIKitLiveUpdater {
+    private isDevMode: boolean;
+    
+    constructor() {
+      this.isDevMode = window.location.hostname === 'localhost';
+      this.init();
+    }
+    
+    init() {
+      this.setupThemeToggle();
+      this.setupLiveVariableDisplay();
+      this.setupAutoRefresh();
+      this.showInitialValues();
+    }
+    
+    setupThemeToggle() {
+      (window as any).toggleTheme = () => {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        
+        const button = document.getElementById('theme-toggle');
+        if (button) {
+          button.textContent = newTheme === 'dark' ? '☀️ Toggle Theme' : '🌙 Toggle Theme';
+        }
+        
+        // Update variable values after theme change
+        setTimeout(() => this.updateVariableDisplay(), 100);
+      };
+    }
+    
+    setupLiveVariableDisplay() {
+      // Create live display container
+      const liveDisplay = document.createElement('div');
+      liveDisplay.id = 'live-variables';
+      liveDisplay.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--surface);
+        border: 1px solid var(--border-color);
+        border-radius: var(--space-sm);
+        padding: var(--space-lg);
+        font-family: monospace;
+        font-size: 12px;
+        max-width: 300px;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      `;
+      
+      document.body.appendChild(liveDisplay);
+      
+      // Update every second if in dev mode
+      if (this.isDevMode) {
+        setInterval(() => this.updateVariableDisplay(), 1000);
+      }
+    }
+    
+    updateVariableDisplay() {
+      const display = document.getElementById('live-variables');
+      if (!display) return;
+      
+      const root = document.documentElement;
+      const computedStyle = getComputedStyle(root);
+      
+      const variables = [
+        { name: '--white', source: 'Layout.astro' },
+        { name: '--black', source: 'Layout.astro' },
+        { name: '--bg', source: 'Layout.astro' },
+        { name: '--accent', source: 'Layout.astro' },
+        { name: '--surface', source: 'globals.css' },
+        { name: '--space-sm', source: 'globals.css' },
+        { name: '--space-lg', source: 'globals.css' },
+        { name: '--font-size-body', source: 'globals.css' },
+      ];
+      
+      let html = '<div style="color: var(--accent); font-weight: bold; margin-bottom: 8px;">🎨 Live CSS Variables</div>';
+      
+      variables.forEach(variable => {
+        const value = computedStyle.getPropertyValue(variable.name).trim();
+        const sourceColor = variable.source === 'Layout.astro' ? '#c62828' : '#0277bd';
+        
+        html += `
+          <div style="margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: var(--text);">${variable.name}:</span>
+            <span style="color: var(--accent); font-weight: bold;">${value}</span>
+          </div>
+          <div style="font-size: 10px; color: ${sourceColor}; margin-bottom: 8px;">${variable.source}</div>
+        `;
+      });
+      
+      display.innerHTML = html;
+    }
+    
+    setupAutoRefresh() {
+      if (!this.isDevMode) return;
+      
+      // Watch for CSS changes using MutationObserver
+      const observer = new MutationObserver((mutations) => {
+        let shouldUpdate = false;
+        
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+            shouldUpdate = true;
+          }
+        });
+        
+        if (shouldUpdate) {
+          this.updateVariableDisplay();
+          this.refreshColorSwatches();
+        }
+      });
+      
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+      });
+      
+      // Watch for style changes
+      if (typeof EventSource !== 'undefined') {
+        console.log('🔄 UI Kit Auto-Update: Enabled (Dev Mode)');
+        console.log('💡 Changes to CSS variables will be reflected automatically');
+      }
+    }
+    
+    refreshColorSwatches() {
+      // Update all color swatches with current variable values
+      const swatches = document.querySelectorAll('.color-swatch');
+      swatches.forEach(swatch => {
+        const element = swatch as HTMLElement;
+        const bgStyle = element.style.background;
+        if (bgStyle.includes('var(')) {
+          // Force recalculation of CSS variable
+          element.style.background = '';
+          requestAnimationFrame(() => {
+            element.style.background = bgStyle;
+          });
+        }
+      });
+      
+      // Update spacing demos
+      const spacingDemos = document.querySelectorAll('[style*="background: var(--accent)"]');
+      spacingDemos.forEach(demo => {
+        const element = demo as HTMLElement;
+        element.style.background = '';
+        requestAnimationFrame(() => {
+          element.style.background = 'var(--accent)';
+        });
+      });
+    }
+    
+    showInitialValues() {
+      console.log('🎨 UI Kit Loaded - All CSS Variables:');
+      this.updateVariableDisplay();
+      
+      const root = document.documentElement;
+      const computedStyle = getComputedStyle(root);
+      
+      console.group('🚀 Critical Variables (Layout.astro)');
+      console.log('--white:', computedStyle.getPropertyValue('--white').trim());
+      console.log('--black:', computedStyle.getPropertyValue('--black').trim());
+      console.log('--bg:', computedStyle.getPropertyValue('--bg').trim());
+      console.log('--accent:', computedStyle.getPropertyValue('--accent').trim());
+      console.groupEnd();
+      
+      console.group('📐 Extended Variables (globals.css)');
+      console.log('--surface:', computedStyle.getPropertyValue('--surface').trim());
+      console.log('--space-sm:', computedStyle.getPropertyValue('--space-sm').trim());
+      console.log('--space-lg:', computedStyle.getPropertyValue('--space-lg').trim());
+      console.log('--font-size-body:', computedStyle.getPropertyValue('--font-size-body').trim());
+      console.groupEnd();
+    }
+  }
+  
+  // Initialize auto-updater when page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    new UIKitLiveUpdater();
+  });
+  
+  // Global function for manual refresh
+  (window as any).refreshUIKit = () => {
+    window.location.reload();
+  };
+  
+  // Export for debugging
+  (window as any).UIKitLiveUpdater = UIKitLiveUpdater;
+</script>

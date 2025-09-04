@@ -40,21 +40,27 @@ export default {
         'medium': '500',
       },
       
-      // Spacing система 4px
+      // Spacing система через CSS переменные
       spacing: {
+        'xs': 'var(--space-xs)',
+        'sm': 'var(--space-sm)',
+        'md': 'var(--space-md)',
+        'lg': 'var(--space-lg)',
+        'xl': 'var(--space-xl)',
+        '2xl': 'var(--space-2xl)',
+        '3xl': 'var(--space-3xl)',
+        '4xl': 'var(--space-4xl)',
+        '5xl': 'var(--space-5xl)',
+        '6xl': 'var(--space-6xl)',
+        // Сохраняем числовые значения для совместимости
         '1': '4px',
         '2': '8px',
         '3': '12px',
         '4': '16px',
-        '5': '20px',
         '6': '24px',
-        '7': '28px',
         '8': '32px',
-        '10': '40px',
         '12': '48px',
-        '14': '56px',
         '16': '64px',
-        '20': '80px',
         '24': '96px',
         '32': '128px',
       },
@@ -87,5 +93,6 @@ export default {
   },
   plugins: [
     require('@tailwindcss/typography'),
-  ],
+    // Container queries будут добавлены позже при необходимости
+  ]
 }
