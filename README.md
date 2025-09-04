@@ -8,7 +8,7 @@
 
 Современный персональный веб-сайт с уникальной архитектурой:
 - **Content Management**: Obsidian vault (удобное редактирование в Markdown)
-- **Frontend**: Astro 4.x (максимальная производительность)
+- **Frontend**: Astro 5.x (максимальная производительность)
 - **UI System**: Кастомный монохромный UI-kit
 - **Performance**: Lighthouse Score 100/100
 

@@ -32,6 +32,14 @@
 
 ## 🧩 Компоненты
 
+### **Borderless design (чистый вид):**
+```css
+.badge { border: none; background: var(--surface); }
+.btn   { border: none; background: var(--accent); }
+.card  { border: none; background: var(--surface); }
+.input { border: none; background: var(--surface); }
+```
+
 ### **Unified sizing (8px vertical padding):**
 ```css
 .badge { padding: var(--space-sm) var(--space-lg); } /* 8px 16px */

@@ -129,6 +129,14 @@ body {
   /* Цвет наследуется или задается через utility классы */
 }
 
+.body-light {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light); /* 300 - легкий вес */
+  font-size: var(--font-size-body); /* 16px - тот же размер */
+  line-height: var(--line-height-body); /* 24px - та же высота строки */
+  /* Цвет наследуется или задается через utility классы */
+}
+
 /* Цветовые модификаторы */
 .text-primary { color: var(--text); }
 .text-secondary { color: var(--text-muted); }
@@ -143,7 +151,7 @@ body {
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   padding: var(--space-sm) var(--space-lg); /* Одинаковые отступы с badge: 8px 16px */
-  border: 1px solid;
+  border: none; /* Убираем border для чистого дизайна */
   border-radius: var(--space-sm); /* 8px - кратно 4px grid */
   cursor: pointer;
   transition: all 0.2s ease;
@@ -156,7 +164,6 @@ body {
 .btn-primary {
   background-color: var(--accent);
   color: var(--bg);
-  border-color: var(--accent);
 }
 
 .btn-primary:hover {
@@ -165,9 +172,8 @@ body {
 }
 
 .btn-secondary {
-  background-color: var(--bg);
+  background-color: var(--surface); /* Используем surface вместо bg для лучшего контраста */
   color: var(--accent);
-  border-color: var(--accent);
 }
 
 .btn-secondary:hover {
@@ -177,7 +183,6 @@ body {
 .btn-ghost {
   background-color: transparent;
   color: var(--accent);
-  border-color: transparent;
 }
 
 .btn-ghost:hover {
@@ -187,9 +192,9 @@ body {
 /* Карточки */
 .card {
   background-color: var(--surface);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 24px;
+  border: none; /* Убираем border для чистого дизайна */
+  border-radius: var(--space-md); /* 12px - кратно 4px grid */
+  padding: var(--space-xl); /* 24px - используем переменные */
   transition: all 0.2s ease;
 }
 
@@ -202,10 +207,10 @@ body {
 .input {
   font-family: var(--font-family);
   font-size: var(--font-size-body);
-  padding: 12px 16px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background-color: var(--bg);
+  padding: var(--space-md) var(--space-lg); /* Используем переменные */
+  border: none; /* Убираем border */
+  border-radius: var(--space-sm); /* 8px - кратно 4px grid */
+  background-color: var(--surface); /* Используем surface для контраста */
   color: var(--text);
   width: 100%;
   transition: all 0.2s ease;
@@ -213,7 +218,7 @@ body {
 
 .input:focus {
   outline: none;
-  border-color: var(--accent);
+  background-color: var(--bg); /* Изменяем фон при фокусе */
   box-shadow: 0 0 0 3px rgba(10,10,10,0.1);
 }
 
@@ -226,7 +231,7 @@ body {
   border-radius: var(--space-sm); /* 8px - кратно 4px grid */
   background-color: var(--surface);
   color: var(--text-muted);
-  border: 1px solid var(--border-color);
+  border: none; /* Убираем border для чистого дизайна */
   display: inline-block;
   transition: all 0.2s ease;
   height: fit-content;
@@ -351,7 +356,7 @@ body {
   position: relative;
   padding-block-start: var(--space-5xl); /* 72px - логическое свойство */
   padding-block-end: var(--space-xl); /* 24px */
-  margin-block-end: var(--space-6xl); /* 132px - увеличенный отступ */
+  margin-block-end: 192px; /* 48 модулей (48 × 4px = 192px) */
 }
 
 .page-footer {
@@ -474,10 +479,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Dark theme logo adjustments - будет реализовано через отдельный SVG */
-[data-theme="dark"] .logo-icon {
-  /* Пока используем оригинальный логотип */
-}
+/* Dark theme logo adjustments - используем оригинальный логотип */
 
 .badge-group {
   display: flex;

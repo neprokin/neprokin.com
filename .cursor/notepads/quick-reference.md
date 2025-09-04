@@ -44,10 +44,11 @@
 
 ### **Typography Classes:**
 ```css
-.h1           /* 48px, light */
-.h2           /* 32px, light */
-.body-large   /* 20px, light */
-.body         /* 16px, medium */
+.h1           /* 48px, light (300) */
+.h2           /* 32px, light (300) */
+.body-large   /* 20px, light (300) */
+.body         /* 16px, medium (500) */
+.body-light   /* 16px, light (300) - NEW */
 ```
 
 ### **Color Classes:**
