@@ -286,30 +286,64 @@ import Card from '../components/ui/Card.astro';
       </div>
     </section>
 
-    <!-- REAL USAGE EXAMPLE -->
-    <section class="kit-section">
-      <div class="kit-header">
-        <h2 class="h2 text-accent" style="margin-bottom: 8px;">🎯 Real Usage Example</h2>
-        <p class="body text-secondary">Как компоненты используются на реальном сайте</p>
-      </div>
+    <!-- Real Usage Example -->
+    <section class="demo-section">
+      <h3 class="demo-title">Real Usage Example</h3>
       
-      <div class="demo-item">
-        <h1 class="h1 text-accent" style="margin-bottom: 16px;">Simple Design of Complex Systems</h1>
-        <p class="body-large text-secondary" style="margin-bottom: 32px;">I develop a system design based on data, user tasks, and common sense</p>
-        
-        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;">
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <Badge>SaaS</Badge>
-            <Badge>Design Systems</Badge>
-            <Badge>Support for Startups</Badge>
+      <!-- Hero Section Demo -->
+      <div class="demo-hero">
+        <h4 class="demo-subtitle">Hero Section with Video</h4>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="h1 text-accent mb-8">Simple Design of Complex Systems</h1>
+            <div class="flex items-center gap-4 flex-wrap mb-8">
+              <div class="badge-group">
+                <Badge>SaaS</Badge>
+                <Badge>Design Systems</Badge>
+                <Badge>Support for Startups</Badge>
+              </div>
+              <Button href="#">Write in Telegram</Button>
+            </div>
           </div>
-          <Button href="https://telegram.me/neprokin">Write in Telegram</Button>
+          <div class="hero-video">
+            <div class="hero-video-placeholder">
+              <span class="video-placeholder-text">🎥 heroLogo.mov</span>
+            </div>
+          </div>
         </div>
-        
-        <p class="body-light text-secondary">
-          Concept → Goals → Research → Roles and Context → Tasks → Scenarios → Architecture → Prototype → Interface → Handover to Development → Authorial Supervision
-        </p>
-        <p class="body text-secondary" style="margin-top: 16px;">Все элементы используют переменные из единых источников правды!</p>
+      </div>
+
+      <!-- Component Demo -->
+      <div class="demo-components">
+        <h4 class="demo-subtitle">Component Library</h4>
+        <div class="component-grid">
+          <div class="component-item">
+            <h5>Button Variants</h5>
+            <div class="flex gap-3 flex-wrap">
+              <Button href="#">Primary</Button>
+              <Button href="#" variant="secondary">Secondary</Button>
+              <Button href="#" variant="ghost">Ghost</Button>
+            </div>
+          </div>
+          
+          <div class="component-item">
+            <h5>Badge Examples</h5>
+            <div class="flex gap-3 flex-wrap">
+              <Badge>Design</Badge>
+              <Badge>Systems</Badge>
+              <Badge>UX</Badge>
+            </div>
+          </div>
+          
+          <div class="component-item">
+            <h5>Card Component</h5>
+            <Card>
+              <h3 class="body-large mb-2">Example Card</h3>
+              <p class="body text-secondary mb-3">This is a sample card component</p>
+              <Badge>Sample</Badge>
+            </Card>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -408,6 +442,72 @@ import Card from '../components/ui/Card.astro';
     background: #e1f5fe; 
     color: #0277bd; 
   }
+
+		/* UI Kit Specific Styles */
+		.demo-section {
+			margin-bottom: var(--space-6xl);
+		}
+		
+		.demo-title {
+			font-size: var(--font-size-h2);
+			font-weight: var(--font-weight-medium);
+			margin-bottom: var(--space-2xl);
+			color: var(--text);
+		}
+		
+		.demo-subtitle {
+			font-size: var(--font-size-body-large);
+			font-weight: var(--font-weight-medium);
+			margin-bottom: var(--space-lg);
+			color: var(--text);
+		}
+		
+		.demo-hero {
+			margin-bottom: var(--space-4xl);
+			padding: var(--space-2xl);
+			background: var(--surface);
+			border-radius: var(--space-lg);
+		}
+		
+		.hero-video-placeholder {
+			width: 100%;
+			height: 300px;
+			background: var(--light);
+			border: 2px dashed var(--border-color);
+			border-radius: var(--space-lg);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.video-placeholder-text {
+			font-size: var(--font-size-body-large);
+			color: var(--text-secondary);
+			font-weight: var(--font-weight-medium);
+		}
+		
+		.demo-components {
+			margin-bottom: var(--space-4xl);
+		}
+		
+		.component-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: var(--space-2xl);
+		}
+		
+		.component-item {
+			padding: var(--space-xl);
+			background: var(--surface);
+			border-radius: var(--space-lg);
+		}
+		
+		.component-item h5 {
+			font-size: var(--font-size-body);
+			font-weight: var(--font-weight-medium);
+			margin-bottom: var(--space-lg);
+			color: var(--text);
+		}
 </style>
 
 <script>

@@ -14,19 +14,40 @@ import Badge from '../components/ui/Badge.astro';
 
 	<!-- Main Content - узкий контейнер, выровнен по левому краю -->
 	<main class="container">
-		<!-- Header Section -->
-		<header class="page-header text-left">
-			<h1 class="h1 text-accent mb-8">Simple Design of Complex Systems</h1>
-			
-			<div class="flex items-center gap-4 flex-wrap mb-8">
-				<div class="badge-group">
-					<Badge>SaaS</Badge>
-					<Badge>Design Systems</Badge>
-					<Badge>Support for Startups</Badge>
+		<!-- Hero Section with Video -->
+		<section class="hero-section">
+			<div class="hero-grid">
+				<!-- Left Content -->
+				<div class="hero-content">
+					<h1 class="h1 text-accent mb-8">Simple Design of Complex Systems</h1>
+					
+					<div class="flex items-center gap-4 flex-wrap mb-8">
+						<div class="badge-group">
+							<Badge>SaaS</Badge>
+							<Badge>Design Systems</Badge>
+							<Badge>Support for Startups</Badge>
+						</div>
+						<Button href="https://telegram.me/neprokin">Write in Telegram</Button>
+					</div>
 				</div>
-				<Button href="https://telegram.me/neprokin">Write in Telegram</Button>
+				
+				<!-- Right Video -->
+				<div class="hero-video">
+					<video 
+						autoplay 
+						muted 
+						loop 
+						playsinline
+						class="hero-video-element"
+						poster="/images/hero-poster.jpg"
+					>
+						<source src="/videos/heroLogo.mov" type="video/quicktime">
+						<source src="/videos/heroLogo.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</div>
 			</div>
-		</header>
+		</section>
 
 		<!-- Description & Process Section -->
 		<section class="section">
