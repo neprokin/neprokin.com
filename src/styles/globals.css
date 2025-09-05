@@ -1,5 +1,41 @@
 /* ===== UI KIT CSS SYSTEM ===== */
 
+/* === CURSOR === */
+/* Custom cursor using ❖ symbol - only for default state */
+* {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><text x='12' y='18' text-anchor='middle' font-size='18' fill='%23000'>❖</text></svg>"), auto;
+}
+
+/* Interactive elements use standard cursors */
+a, button, input, textarea, select, .btn, .nav-item, .company-logo-link, .company-link {
+  cursor: pointer;
+}
+
+/* Text elements use text cursor - but not if they are interactive */
+p, span, h1, h2, h3, h4, h5, h6 {
+  cursor: text;
+}
+
+/* Override text cursor for ALL interactive text elements */
+a, a.body, a.body-light, .nav-item, .footer-links a, .company-link, .company-logo-link {
+  cursor: pointer !important;
+}
+
+/* Ensure all links have pointer cursor */
+a[href] {
+  cursor: pointer !important;
+}
+
+/* Force pointer cursor for all clickable elements */
+*[onclick], *[href], button, input[type="button"], input[type="submit"] {
+  cursor: pointer !important;
+}
+
+/* Override text cursor for text inside links */
+a .body, a .body-light, a span, a p, a h1, a h2, a h3, a h4, a h5, a h6 {
+  cursor: pointer !important;
+}
+
 /* === EXTENDED COLOR SYSTEM === */
 :root {
   /* Расширенные цвета (базовые --white, --black определены в Layout.astro) */
@@ -361,9 +397,37 @@ body {
 
 .page-footer {
   padding: 48px 0;
-  text-align: center;
   border-top: 1px solid var(--border-color);
   /* Используем широкий контейнер как у шапки */
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.footer-separator {
+  justify-self: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-xl);
+  justify-self: end;
+}
+
+.footer-links a {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--space-sm); /* 8px - кратно 4px grid */
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+  background-color: var(--surface);
 }
 
 .content-nav {
@@ -509,6 +573,18 @@ body {
     gap: 16px;
   }
   
+  .footer-content {
+    gap: 16px;
+  }
+  
+  .footer-links {
+    gap: 16px;
+  }
+  
+  .footer-links a {
+    padding: var(--space-sm) var(--space-sm); /* Меньшие отступы на мобильных */
+  }
+  
   .button-group {
     flex-direction: column;
     gap: 12px;
@@ -518,5 +594,139 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+}
+
+/* Companies Logos Row */
+.companies-logos {
+  display: flex;
+  gap: var(--space-2xl); /* 32px gap between logos */
+  justify-content: flex-start; /* Left align */
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4xl); /* 64px margin before table */
+}
+
+.company-logo {
+  /* Remove custom sizing - use original logo dimensions */
+}
+
+.company-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.company-logo-link:hover {
+  opacity: 0.8;
+}
+
+/* Mobile responsive for logos */
+@media (max-width: 768px) {
+  .companies-logos {
+    gap: var(--space-xl); /* 24px gap on mobile */
+    margin-bottom: var(--space-3xl); /* 48px margin on mobile */
+  }
+  
+  .company-logo {
+    /* Remove custom sizing - use original logo dimensions */
+  }
+}
+
+/* Companies Table */
+.companies-table {
+  max-width: 800px;
+  margin: 0; /* Left align instead of center */
+}
+
+.companies-table-content {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.companies-table-content td {
+  padding: var(--space-lg) 0; /* 16px vertical padding */
+  border: none;
+  vertical-align: middle;
+}
+
+.company-cell {
+  width: 40%;
+}
+
+.company-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md); /* 12px gap between logo and name */
+  text-decoration: none;
+  color: var(--accent); /* Use accent color like navigation and footer */
+  transition: opacity 0.2s ease;
+}
+
+.company-link:hover {
+  opacity: 0.7;
+}
+
+.company-logo {
+  /* Remove custom sizing - use original logo dimensions */
+  flex-shrink: 0;
+}
+
+.company-name {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+.role-cell {
+  width: 45%;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--text-muted);
+}
+
+.status-cell {
+  width: 15%;
+  text-align: right;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--text-muted);
+}
+
+.status-current {
+  color: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Mobile responsive for companies table */
+@media (max-width: 768px) {
+  .companies-table-content {
+    font-size: 14px;
+  }
+  
+  .companies-table-content td {
+    padding: var(--space-md) 0; /* 12px vertical padding on mobile */
+  }
+  
+  .company-link {
+    gap: var(--space-sm); /* 8px gap on mobile */
+  }
+  
+  .company-logo {
+    /* Remove custom sizing - use original logo dimensions */
+  }
+  
+  .role-cell {
+    font-size: 14px;
+  }
+  
+  .status-cell {
+    font-size: 14px;
   }
 }

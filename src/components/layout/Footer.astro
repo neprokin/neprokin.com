@@ -24,17 +24,25 @@ const contactLinks = [
 ---
 
 <footer class={`page-footer ${className}`}>
-  <p class="body text-secondary mb-4">© {yearRange}</p>
-  <div class="nav-links justify-center">
-    {contactLinks.map(link => (
-      <a 
-        href={link.href} 
-        class="body text-accent"
-        target={link.type === 'social' ? '_blank' : undefined}
-        rel={link.type === 'social' ? 'noopener noreferrer' : undefined}
-      >
-        {link.label}
-      </a>
-    ))}
+  <div class="footer-content">
+    <!-- Left: Copyright -->
+    <p class="body text-secondary">© {yearRange}</p>
+    
+    <!-- Center: Separator -->
+    <span class="body text-secondary footer-separator">〜</span>
+    
+    <!-- Right: Contact links -->
+    <div class="footer-links">
+      {contactLinks.map(link => (
+        <a 
+          href={link.href} 
+          class="body text-accent"
+          target={link.type === 'social' ? '_blank' : undefined}
+          rel={link.type === 'social' ? 'noopener noreferrer' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
   </div>
 </footer>

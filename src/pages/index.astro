@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/layout/Navigation.astro';
+import Footer from '../components/layout/Footer.astro';
 import Button from '../components/ui/Button.astro';
-import Card from '../components/ui/Card.astro';
 import Badge from '../components/ui/Badge.astro';
 ---
 
@@ -53,42 +53,102 @@ import Badge from '../components/ui/Badge.astro';
 		<section class="section">
 			<h2 class="h2 mb-8">Large companies and startups trust me</h2>
 			
-			<div class="grid grid-2 max-w-lg mx-auto">
-				<Card>
-					<h3 class="body-large mb-2">Urbi</h3>
-					<p class="body text-secondary mb-3">Senior Product Designer</p>
-					<Badge>Current</Badge>
-				</Card>
-				
-				<Card>
-					<h3 class="body-large mb-2">M2 Pro</h3>
-					<p class="body text-secondary mb-3">Senior Product Designer</p>
-					<Badge>2 years</Badge>
-				</Card>
-				
-				<Card>
-					<h3 class="body-large mb-2">VK Tax Compliance</h3>
-					<p class="body text-secondary mb-3">Lead Product Designer</p>
-					<Badge>1 year</Badge>
-				</Card>
-				
-				<Card>
-					<h3 class="body-large mb-2">Skipp Pro</h3>
-					<p class="body text-secondary mb-3">Lead Product Designer</p>
-					<Badge>2 years</Badge>
-				</Card>
+			<!-- Companies Logos Row -->
+			<div class="companies-logos">
+				<a href="https://dev.2gis.ru/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+					<img src="/images/logos/2GIS.svg" alt="2GIS" class="company-logo">
+				</a>
+				<a href="https://m2.ru/rieltoram/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+					<img src="/images/logos/M2Pro.svg" alt="M2PRO" class="company-logo">
+				</a>
+				<a href="https://tech.vk.com/product/tax-compliance-platform" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+					<img src="/images/logos/VKTech.svg" alt="VK tech" class="company-logo">
+				</a>
+				<a href="https://www.skipp.dev/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+					<img src="/images/logos/SKIPP.svg" alt="SKIPP" class="company-logo">
+				</a>
+				<a href="https://123apps.com/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+					<img src="/images/logos/123APPS.svg" alt="123APPS" class="company-logo">
+				</a>
+			</div>
+			
+			<!-- Companies Table (keeping both) -->
+			<div class="companies-table">
+				<table class="companies-table-content">
+					<tbody>
+						<tr>
+							<td class="company-cell">
+								<a href="https://dev.2gis.ru" target="_blank" rel="noopener noreferrer" class="company-link">
+									<span class="company-name">2GIS</span>
+								</a>
+							</td>
+							<td class="role-cell">Senior Product Designer</td>
+							<td class="status-cell">
+								<span class="status-current">◉</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="company-cell">
+								<a href="https://m2.ru/rieltoram/" target="_blank" rel="noopener noreferrer" class="company-link">
+									<span class="company-name">M2 Pro</span>
+								</a>
+							</td>
+							<td class="role-cell">Senior Product Designer</td>
+							<td class="status-cell">2 yrs</td>
+						</tr>
+						<tr>
+							<td class="company-cell">
+								<a href="https://tech.vk.com/product/tax-compliance-platform" target="_blank" rel="noopener noreferrer" class="company-link">
+									<span class="company-name">VK Tax Compliance</span>
+								</a>
+							</td>
+							<td class="role-cell">Lead Product Designer</td>
+							<td class="status-cell">1 yrs</td>
+						</tr>
+						<tr>
+							<td class="company-cell">
+								<a href="https://www.skipp.dev" target="_blank" rel="noopener noreferrer" class="company-link">
+									<span class="company-name">Skipp Pro</span>
+								</a>
+							</td>
+							<td class="role-cell">Lead Product Designer</td>
+							<td class="status-cell">2 yrs</td>
+						</tr>
+						<tr>
+							<td class="company-cell">
+								<a href="https://123apps.com" target="_blank" rel="noopener noreferrer" class="company-link">
+									<span class="company-name">123 apps</span>
+								</a>
+							</td>
+							<td class="role-cell">Lead Product Designer</td>
+							<td class="status-cell">1 yrs</td>
+						</tr>
+						<tr>
+							<td class="company-cell">
+								<span class="company-link">
+									<span class="company-name">Valov & Neprokin</span>
+								</span>
+							</td>
+							<td class="role-cell">Designer · Manager · Owner</td>
+							<td class="status-cell">3 yrs</td>
+						</tr>
+						<tr>
+							<td class="company-cell">
+								<span class="company-link">
+									<span class="company-name">Independent Designer</span>
+								</span>
+							</td>
+							<td class="role-cell">Designer · Manager</td>
+							<td class="status-cell">5 yrs</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</section>
 	</main>
 
 	<!-- Footer Section - широкий контейнер как шапка -->
-	<footer class="page-footer">
-		<div class="container-wide">
-			<p class="body text-secondary mb-4">© 2009–2024</p>
-			<div class="nav-links justify-center">
-				<a href="mailto:stas.neprokin@gmail.com" class="body text-accent">stas.neprokin@gmail.com</a>
-				<a href="https://telegram.me/neprokin" class="body text-accent">telegram.me/neprokin</a>
-			</div>
-		</div>
-	</footer>
+	<div class="container-wide">
+		<Footer />
+	</div>
 </Layout>
