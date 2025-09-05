@@ -1,0 +1,177 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/layout/Navigation.astro';
+import Footer from '../../components/layout/Footer.astro';
+import Badge from '../../components/ui/Badge.astro';
+---
+
+<Layout title="Building neprokin.com Without Programming Skills, in Cursor">
+	<div class="container-wide">
+		<Navigation />
+	</div>
+	
+	<main class="container">
+		<section class="section">
+			<div class="mb-8">
+				<div class="flex items-center gap-4 flex-wrap mb-8">
+					<div class="badge-group">
+						<Badge>AI Development</Badge>
+						<Badge>Astro</Badge>
+						<Badge>Performance</Badge>
+					</div>
+				</div>
+			</div>
+			
+			<h1 class="h1 text-accent mb-8">Building neprokin.com Without Programming Skills, in Cursor</h1>
+			<p class="body-large text-secondary mb-8">How to create a modern website with Lighthouse Score 100/100 using only Cursor AI without deep programming skills.</p>
+		</section>
+		
+		<section class="section">
+			<div class="max-w-4xl">
+				<h2 class="h2 mb-4">Introduction</h2>
+				<p class="body text-secondary mb-4">
+					In this article, I'll share how to create a modern website with maximum performance metrics without having deep programming skills. Using only Cursor AI and following the right process, we created a site with Lighthouse Score 100/100 that outperforms many professional solutions. This is a real case study that shows how AI tools make web development accessible to everyone.
+				</p>
+				
+				<h2 class="h2 mb-4">1. Setting Up Cursor AI</h2>
+				<p class="body text-secondary mb-4">
+					The first step was properly configuring Cursor for efficient work. We created a <code class="code">.cursorrules</code> file in the project root describing:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li>Code style and conventions</li>
+					<li>Project architecture</li>
+					<li>Technologies used (Astro, TypeScript, Tailwind)</li>
+					<li>Design system specifics</li>
+				</ul>
+				
+				<p class="body text-secondary mb-4">
+					We also configured Cursor's notepad with important project information: API keys, database structure, business logic, and development plans. Added links to framework documentation and enabled auto-context for better codebase understanding.
+				</p>
+				
+				<h2 class="h2 mb-4">2. Task Definition</h2>
+				<p class="body text-secondary mb-4">
+					The goal was to create a modern personal website with focus on performance and maintenance simplicity. Main requirements:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li>Maximum performance (Lighthouse Score 100/100)</li>
+					<li>Modern architecture with Astro 5.x</li>
+					<li>Custom monochrome design system</li>
+					<li>Obsidian integration for content management</li>
+					<li>Automatic deployment to Vercel</li>
+					<li>Strict TypeScript typing</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">3. Technology Stack Selection</h2>
+				<p class="body text-secondary mb-4">
+					After analyzing requirements, we chose the following stack:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li><strong>Astro 5.13.5</strong> - Islands Architecture for maximum performance</li>
+					<li><strong>TypeScript</strong> - strict typing for code reliability</li>
+					<li><strong>Tailwind CSS</strong> - utility-first approach with custom design system</li>
+					<li><strong>Obsidian</strong> - content management through Markdown files</li>
+					<li><strong>Vercel</strong> - hosting with automatic deployment</li>
+					<li><strong>GitHub</strong> - version control and CI/CD</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">4. Project Architecture</h2>
+				<p class="body text-secondary mb-4">
+					We created a distributed CSS architecture for optimal performance:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li><strong>Critical CSS</strong> in Layout.astro - instant loading</li>
+					<li><strong>Global Styles</strong> in globals.css - design system</li>
+					<li><strong>Tailwind Config</strong> - utility framework with CSS variables</li>
+					<li><strong>UI Kit</strong> - interactive page for component preview</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">5. Design System Development</h2>
+				<p class="body text-secondary mb-4">
+					We created a monochrome design system with 6 colors in gray palette (#FDFDFD → #0A0A0A). Used system fonts for instant loading and 4px modular grid for consistency. Implemented light and dark theme support with automatic switching.
+				</p>
+				
+				<h2 class="h2 mb-4">6. Component Creation</h2>
+				<p class="body text-secondary mb-4">
+					We developed reusable components with TypeScript typing:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li><strong>UI components</strong> - Badge, Button, Card</li>
+					<li><strong>Layout components</strong> - Navigation, Footer</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">7. Obsidian Integration</h2>
+				<p class="body text-secondary mb-4">
+					We set up Obsidian integration for convenient content management. Created folder structure in <code class="code">src/content/</code> for Markdown files with YAML frontmatter. This allowed editing content in the familiar Obsidian interface and automatically deploying changes.
+				</p>
+				
+				<h2 class="h2 mb-4">8. Performance Optimization</h2>
+				<p class="body text-secondary mb-4">
+					We implemented numerous optimizations to achieve maximum performance:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li>Critical CSS inline for instant rendering</li>
+					<li>System fonts instead of external ones</li>
+					<li>Image and SVG optimization</li>
+					<li>Lazy loading for video content</li>
+					<li>Resource minification and compression</li>
+					<li>Static resource caching</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">9. Deployment Setup</h2>
+				<p class="body text-secondary mb-4">
+					We configured automatic deployment to Vercel with GitHub integration. Added security headers for maximum security and configured caching for optimal performance. Implemented preview deployments for each pull request.
+				</p>
+				
+				<h2 class="h2 mb-4">10. Achieved Results</h2>
+				<p class="body text-secondary mb-4">
+					As a result, we got a site with outstanding metrics:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li><strong>Lighthouse Score</strong>: 100/100/100/100 ✅</li>
+					<li><strong>Bundle Size</strong>: &lt; 50KB (gzipped) ✅</li>
+					<li><strong>First Contentful Paint</strong>: &lt; 1.0s ✅</li>
+					<li><strong>Largest Contentful Paint</strong>: &lt; 1.5s ✅</li>
+					<li><strong>Security Headers</strong>: A+ rating ✅</li>
+					<li><strong>Hosting Cost</strong>: $0/month (Vercel Free Tier) ✅</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">11. Comparison with Previous Version</h2>
+				<p class="body text-secondary mb-4">
+					Comparison with the previous WordPress version shows significant improvements:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li>Performance: 85/100 → 100/100 (+15 points)</li>
+					<li>FCP: 2.8s → &lt;1.0s (3x faster)</li>
+					<li>LCP: 3.3s → &lt;1.5s (2x faster)</li>
+					<li>Bundle Size: ~200KB → &lt;50KB (75% smaller)</li>
+					<li>Hosting Cost: $5-10/month → $0/month (100% savings)</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">12. Key Lessons</h2>
+				<p class="body text-secondary mb-4">
+					The development process with Cursor AI revealed several important principles:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li><strong>Proper AI setup</strong> is critically important for efficient work</li>
+					<li><strong>Performance First</strong> approach should be built into architecture from the start</li>
+					<li><strong>Systematic approach</strong> to design simplifies maintenance and scaling</li>
+					<li><strong>Automation</strong> of deployment and CI/CD significantly speeds up development</li>
+					<li><strong>Documentation</strong> and project structure are important for long-term maintenance</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">Conclusion</h2>
+				<p class="body text-secondary mb-4">
+					Creating a website with Cursor AI demonstrated the enormous potential of modern development tools. Proper AI assistant setup, choosing the right technology stack, and focusing on performance allowed us to create a site that outperforms the previous version in all metrics. This is a real example of how AI can accelerate development without compromising quality.
+				</p>
+				
+				<p class="body text-secondary mb-4">
+					The project is available at <a href="https://neprokin.com" class="text-accent" target="_blank" rel="noopener noreferrer">neprokin.com</a> and demonstrates the capabilities of modern web development using AI tools.
+				</p>
+			</div>
+		</section>
+	</main>
+	
+	<div class="container-wide">
+		<Footer />
+	</div>
+</Layout>

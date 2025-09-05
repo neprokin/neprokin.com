@@ -63,8 +63,14 @@ import '../styles/globals.css';
 				--bg: var(--black); --accent: var(--white);
 			}
 			
-			html { font-family: var(--font-family); background-color: var(--bg); color: var(--text); }
-			body { line-height: 1.5; -webkit-font-smoothing: antialiased; }
+			html { font-family: var(--font-family); background-color: var(--bg); color: var(--text); height: 100%; }
+			body { line-height: 1.5; -webkit-font-smoothing: antialiased; height: 100%; display: flex; flex-direction: column; }
+			
+			/* Ensure header and footer span full width */
+			.container-wide { width: 100%; }
+			
+			/* Make main content area flexible */
+			main { flex: 1; }
 			
 			.h1 { font-weight: 300; font-size: 48px; line-height: 52px; color: var(--text); }
 			.h2 { font-weight: 300; font-size: 32px; line-height: 36px; color: var(--text); }

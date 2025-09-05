@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/layout/Navigation.astro';
+import Footer from '../../components/layout/Footer.astro';
+import Badge from '../../components/ui/Badge.astro';
+---
+
+<Layout title="Cursor Guide - Guide to setting up and using Cursor">
+	<div class="container-wide">
+		<Navigation />
+	</div>
+	
+	<main class="container">
+		<section class="section">
+			<div class="mb-8">
+				<div class="flex items-center gap-4 flex-wrap mb-8">
+					<div class="badge-group">
+						<Badge>βeta Chapters</Badge>
+						<Badge>Writing</Badge>
+					</div>
+				</div>
+			</div>
+			
+			<h1 class="h1 text-accent mb-8">Cursor Guide</h1>
+			<p class="body-large text-secondary mb-8">Guide to setting up and using Cursor</p>
+		</section>
+		
+		<section class="section">
+			<div class="max-w-4xl">
+				<p class="body text-secondary mb-4">
+					There are several simple steps for initial Cursor setup that deliver amazing results, significantly improve code quality, and dramatically reduce errors. Configure: <strong>project rules</strong>, <strong>notepad</strong>, and add links to <strong>documentation</strong>.
+				</p>
+				
+				<h2 class="h2 mb-4">1. Project Rules</h2>
+				<p class="body text-secondary mb-4">
+					Create a <code class="code">.cursorrules</code> file in the project root. Describe in it:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li>Code style and conventions</li>
+					<li>Project architecture</li>
+					<li>Technologies and frameworks used</li>
+					<li>Project specifics</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">2. Notepad</h2>
+				<p class="body text-secondary mb-4">
+					Use the notepad to store important project information:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li>API keys and configuration</li>
+					<li>Database structure</li>
+					<li>Business logic</li>
+					<li>Development plans</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">3. Documentation</h2>
+				<p class="body text-secondary mb-4">
+					Add documentation links to the notepad:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li>Official framework documentation</li>
+					<li>API documentation</li>
+					<li>Design system</li>
+					<li>Coding standards</li>
+				</ul>
+				
+				<h2 class="h2 mb-4">4. Auto Context</h2>
+				<p class="body text-secondary mb-4">
+					Enable:
+				</p>
+				<p class="body text-secondary mb-4">
+					Settings → Features → Auto Context
+				</p>
+				
+				<h2 class="h2 mb-4">Useful Resources</h2>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li><a href="https://cursor.directory" class="text-accent" target="_blank" rel="noopener noreferrer">Cursor Directory: https://cursor.directory</a></li>
+					<li><a href="https://docs.cursor.com/beta/notepads" class="text-accent" target="_blank" rel="noopener noreferrer">Notepads Docs: https://docs.cursor.com/beta/notepads</a></li>
+					<li><a href="https://docs.cursor.com/context/rules-for-ai" class="text-accent" target="_blank" rel="noopener noreferrer">Rules for AI: https://docs.cursor.com/context/rules-for-ai</a></li>
+				</ul>
+			</div>
+		</section>
+	</main>
+	
+	<div class="container-wide">
+		<Footer />
+	</div>
+</Layout>
+
+<style>
+	.code {
+		background-color: var(--gray-100);
+		padding: 2px 6px;
+		border-radius: 4px;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+		font-size: var(--text-sm);
+		color: var(--gray-800);
+	}
+	
+	@media (prefers-color-scheme: dark) {
+		.code {
+			background-color: var(--gray-800);
+			color: var(--gray-200);
+		}
+	}
+</style>

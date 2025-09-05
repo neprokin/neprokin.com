@@ -1,0 +1,588 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/layout/Navigation.astro';
+import Footer from '../../components/layout/Footer.astro';
+import Badge from '../../components/ui/Badge.astro';
+---
+
+<Layout title="Chapter №1 — Foundation - Interface Design Framework">
+	<div class="container-wide">
+		<Navigation />
+	</div>
+	
+	<main class="container">
+		<section class="section">
+			<div class="mb-8">
+				<div class="flex items-center gap-4 flex-wrap mb-8">
+					<div class="badge-group">
+						<Badge>βeta Chapters</Badge>
+						<Badge>Writing</Badge>
+					</div>
+				</div>
+			</div>
+			
+			<h1 class="h1 text-accent mb-8">Chapters №1 — Foundation</h1>
+			<p class="body-large text-secondary mb-8">The First Chapter</p>
+		</section>
+		
+		<section class="section">
+			<h2 class="h2 mb-8">Chapter Content</h2>
+			
+			<div class="chapters-table">
+				<table class="chapters-table-content">
+					<tbody>
+						<tr>
+							<td class="chapter-number">1.</td>
+							<td class="chapter-title">
+								<a href="#Introduction" class="chapter-link">
+									<span class="chapter-name">Introduction</span>
+								</a>
+							</td>
+							<td class="chapter-description">
+								Why defining mission, vision, and values is important.
+							</td>
+							<td class="chapter-action">
+								<a href="#Introduction" class="chapter-action-link">Open</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="chapter-number">2.</td>
+							<td class="chapter-title">
+								<a href="#Mission" class="chapter-link">
+									<span class="chapter-name">Mission</span>
+								</a>
+							</td>
+							<td class="chapter-description">
+								The primary goal and purpose of the product.
+							</td>
+							<td class="chapter-action">
+								<a href="#Mission" class="chapter-action-link">Open</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="chapter-number">3.</td>
+							<td class="chapter-title">
+								<a href="#Vision" class="chapter-link">
+									<span class="chapter-name">Vision</span>
+								</a>
+							</td>
+							<td class="chapter-description">
+								The long-term outlook for the product and its development.
+							</td>
+							<td class="chapter-action">
+								<a href="#Vision" class="chapter-action-link">Open</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="chapter-number">4.</td>
+							<td class="chapter-title">
+								<a href="#Values" class="chapter-link">
+									<span class="chapter-name">Values</span>
+								</a>
+							</td>
+							<td class="chapter-description">
+								The key principles that guide the team.
+							</td>
+							<td class="chapter-action">
+								<a href="#Values" class="chapter-action-link">Open</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="chapter-number">5.</td>
+							<td class="chapter-title">
+								<a href="#Conclusion" class="chapter-link">
+									<span class="chapter-name">Conclusion</span>
+								</a>
+							</td>
+							<td class="chapter-description">
+								The key points and their significance.
+							</td>
+							<td class="chapter-action">
+								<a href="#Conclusion" class="chapter-action-link">Open</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+		
+		<section class="section" id="Introduction">
+			<h2 class="h2 mb-4">Introduction</h2>
+			<div class="max-w-4xl">
+				<p class="body text-secondary mb-4">
+					Okay, this might sound a bit pretentious, especially if you're not creating the next Apple but something simpler. At a product manager meetup, there was a common joke on this topic where students were given badges saying, «We own a vision.» It's commonly believed that you need to make money first and then think about mission, vision, and everything else.
+				</p>
+				<p class="body text-secondary mb-4">
+					There is indeed some sense in this, but I believe it's worth dedicating time and attention to this chapter. It's important for you as the product owner. This is a good way to think structurally about what you are going to do and the benefits it will bring. You might even realize that the product, as you initially envisioned it, doesn't need to be made at all, which is okay because you will save time and create something more worthwhile.
+				</p>
+				<p class="body text-secondary mb-4">
+					If you can clearly describe, first to yourself, what your product is and why you are making it, everything will be much simpler moving forward. You will have a foundation in which you believe and upon which you can rely.
+				</p>
+				<p class="body text-secondary mb-4">
+					Another unexpected benefit of going through this chapter is the ability to succinctly answer the question, «What do you do?» whether in an elevator meeting with an investor or chatting with a potential CTO over a beer.
+				</p>
+				<p class="body text-secondary mb-4">
+					Take this seriously; it's worth it.
+				</p>
+				<p class="body text-secondary mb-4">
+					There are many frameworks and models taught in universities, described in authoritative books, and discussed in academic circles, such as:
+				</p>
+				<ul class="body text-secondary mb-4 ml-6">
+					<li>Value Proposition Canvas (VPC)</li>
+					<li>SWOT Analysis</li>
+					<li>Simon Sinek's Golden Circle</li>
+				</ul>
+				<p class="body text-secondary mb-4">
+					You can study these models independently if you wish, but in this chapter, we will leave them aside. We are bootstrapping with limited resources, not preparing for an MBA, right?
+				</p>
+				<p class="body text-secondary mb-4">
+					So, let's keep it simple, friends. Simple questions, common sense.
+				</p>
+			</div>
+		</section>
+		
+		<section class="section" id="Mission">
+			<h2 class="h2 mb-4">Mission</h2>
+			<div class="max-w-4xl">
+				<p class="body text-secondary mb-4">
+					A clear mission statement provides direction and defines the primary objective of the product.
+				</p>
+				<p class="body text-secondary mb-4">
+					Let's answer three questions:
+				</p>
+				<p class="body text-secondary mb-4">
+					One: <strong>What are we going to do?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Two: <strong>What problems are we solving?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Three: <strong>Why?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					The idea of our product is to create an AI-powered tool that allows people to automatically generate responses to other users' posts. The tool will be flexible in its settings, allowing users to mimic their communication style and tone. Additionally, the tool will have a feature for automatically unfollowing users who do not follow back.
+				</p>
+				<p class="body text-secondary mb-4">
+					The tool is expected to be useful for users who are just starting to build a public account and need their first 1,000 followers.
+				</p>
+				
+				<h3 class="h3 mb-4">Structuring the Vision</h3>
+				<p class="body text-secondary mb-4">
+					<strong>What are we going to do?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					We are creating an AI tool to help new users effectively grow their public accounts…
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>What problems are we solving?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					…by automatically generating responses and managing followers…
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>Why?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					…to gain the first 1,000 followers.
+				</p>
+				
+				<h3 class="h3 mb-4">Result</h3>
+				<p class="body text-secondary mb-4">
+					<strong>A tool that attracts 1,000 new followers through AI-generated personalized responses and follower management.</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Clearer now, right? Now you have a succinct answer for a new acquaintance while the bartender pours a double Lagavulin. This amount of time is enough to explain what you do.
+				</p>
+				<p class="body text-secondary mb-4">
+					It's not necessary for the mission to follow the exact order of questions mentioned above. The main thing is that the mission is clear and concise.
+				</p>
+				
+				<h3 class="h3 mb-4">Examples</h3>
+				<p class="body text-secondary mb-4">
+					Here are a few examples of other companies' missions that might help:
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>Playrix</strong>: Bringing joy to millions of people by creating games of unique quality.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>Revolut</strong>: Helping our clients improve their financial health, giving them greater control, and fostering financial inclusion in the communities where we operate.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>Evernote</strong>: Helping you remember all the important things in your life.
+				</p>
+				
+				<h3 class="h3 mb-4">Framework</h3>
+				<p class="body text-secondary mb-4">
+					One: <strong>What are we going to do?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Two: <strong>What problems are we solving?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Three: <strong>Why?</strong>
+				</p>
+				
+				<h3 class="h3 mb-4">Tools</h3>
+				<p class="body text-secondary mb-4">
+					ChatGPT Plugin
+				</p>
+				<p class="body text-secondary mb-4">
+					Open
+				</p>
+				<p class="body text-secondary mb-4">
+					Write about your product in free form, and GPT will ask additional questions and formulate the vision.
+				</p>
+			</div>
+		</section>
+		
+		<section class="section" id="Vision">
+			<h2 class="h2 mb-4">Vision</h2>
+			<div class="max-w-4xl">
+				<p class="body text-secondary mb-4">
+					The product vision describes how the product will look in the future. If the mission clarifies what we want to do, the vision explains what we aim to achieve in the long term.
+				</p>
+				<p class="body text-secondary mb-4">
+					No magic here, just three simple questions:
+				</p>
+				<p class="body text-secondary mb-4">
+					One: <strong>What do we want to achieve?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Two: <strong>How will we achieve it?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Three: <strong>What changes will our product bring?</strong>
+				</p>
+				
+				<h3 class="h3 mb-4">Structuring the Vision</h3>
+				<p class="body text-secondary mb-4">
+					<strong>What do we want to achieve?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					We aim to create a tool that becomes the leading solution for automating digital communication, helping users effectively engage with their audience and grow their accounts.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>How will we achieve it?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					We will develop advanced AI algorithms for generating personalized responses and managing followers, providing users with powerful and flexible tools to achieve their goals.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>What changes will our product bring?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Our product will allow users to focus on creating high-quality content and engaging with their audience, making the process of gaining followers and managing their account simpler and more effective.
+				</p>
+				
+				<h3 class="h3 mb-4">Result</h3>
+				<p class="body text-secondary mb-4">
+					<strong>Our product will become the leading tool for automating digital communication, helping users effectively engage with their audience and grow their accounts using advanced AI technologies.</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Now you have a clear understanding of your product's future and how it will change users' lives.
+				</p>
+				<p class="body text-secondary mb-4">
+					It's not necessary for the answers in the vision to be in the exact order described above. The most important thing is for the vision to be inspiring and clear.
+				</p>
+				
+				<h3 class="h3 mb-4">Examples</h3>
+				<p class="body text-secondary mb-4">
+					Here are some examples of other companies' visions that can help:
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>Henry Ford</strong>: I will build a motor car for the great multitude. It will be so low in price that no man making a good salary will be unable to own one and enjoy with his family the blessing of hours of pleasure in God's great open spaces. When I'm through, everybody will be able to afford one, and everyone will have one. The horse will have disappeared from our highways, the automobile will be taken for granted, and we will give a large number of men employment at good wages.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>Walt Disney</strong>: The idea of Disneyland is a simple one. It will be a place where people can find happiness and knowledge. It will be a place where parents and children can have fun together; a place where teachers and pupils can discover greater ways of understanding and education. Here the older generation can recapture the nostalgia of days gone by, and the younger generation can savor the challenge of the future. Disneyland will be a place where the wonders of Nature and Man can be seen and enjoyed, a place where we can learn and be inspired by the achievements, hopes, and dreams of the human race. Disneyland will be something of a fair, an exhibition, a playground, a community center, a museum of living facts, and a showplace of beauty and magic. It will be filled with the accomplishments, joys, and hopes of the world we live in and will remind us and show us how to make these wonders part of our own lives.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>Intel</strong>: A billion connected computers worldwide, millions of servers, and trillions of dollars of e-commerce transactions.
+				</p>
+				<p class="body text-secondary mb-4">
+					These guys seem a bit greedy, don't they? 🙂
+				</p>
+				
+				<h3 class="h3 mb-4">Framework</h3>
+				<p class="body text-secondary mb-4">
+					<strong>What do we want to achieve?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>How will we achieve it?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>What changes will our product bring?</strong>
+				</p>
+				
+				<h3 class="h3 mb-4">Tools</h3>
+				<p class="body text-secondary mb-4">
+					ChatGPT Plugin
+				</p>
+				<p class="body text-secondary mb-4">
+					Open
+				</p>
+				<p class="body text-secondary mb-4">
+					Write about your product in free form, and GPT will ask additional questions and formulate the vision.
+				</p>
+			</div>
+		</section>
+		
+		<section class="section" id="Values">
+			<h2 class="h2 mb-4">Values</h2>
+			<div class="max-w-4xl">
+				<p class="body text-secondary mb-4">
+					Product values are essential for understanding how to act in unclear situations, what features to implement, and how to generally build the product.
+				</p>
+				<p class="body text-secondary mb-4">
+					If the company's values state that we are user-oriented, we won't make the process of unsubscribing from the product as complex as programming in binary code.
+				</p>
+				<p class="body text-secondary mb-4">
+					Let's answer three questions:
+				</p>
+				<p class="body text-secondary mb-4">
+					One: <strong>What principles do we follow?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Two: <strong>What is important to us?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Three: <strong>What qualities do we want to incorporate into our product?</strong>
+				</p>
+				
+				<h3 class="h3 mb-4">Structuring the Vision</h3>
+				<p class="body text-secondary mb-4">
+					<strong>What principles do we follow?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					We adhere to the principles of openness, innovation, and user-centricity.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>What is important to us?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Quality, safety, and ease of use are important to us.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>What qualities do we want to incorporate into our product?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					We strive to make our product intuitive, flexible, and reliable so that users can easily and effectively achieve their goals.
+				</p>
+				
+				<h3 class="h3 mb-4">Result</h3>
+				<p class="body text-secondary mb-4">
+					<strong>Our values are openness, innovation, and user-centricity. We aim to create a high-quality, safe, and easy-to-use product that is intuitive, flexible, and reliable.</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Now you have a clear understanding of the principles guiding the team in product development and the qualities it aims to incorporate.
+				</p>
+				
+				<h3 class="h3 mb-4">Examples</h3>
+				<p class="body text-secondary mb-4">
+					Here are some examples of other companies' visions that can help:
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>Amazon</strong>: Our primary principle is respect for the individual, their rights, and dignity.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>American Express</strong>: Unparalleled products and service, premium value for customers.
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>IKEA</strong>: Togetherness, caring for people and the planet, cost-consciousness, simplicity, renewal and improvement, leading by example, taking responsibility and delegating responsibility.
+				</p>
+				
+				<h3 class="h3 mb-4">Framework</h3>
+				<p class="body text-secondary mb-4">
+					<strong>What principles do we follow?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>What is important to us?</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					<strong>What qualities do we want to incorporate into our product?</strong>
+				</p>
+				
+				<h3 class="h3 mb-4">Tools</h3>
+				<p class="body text-secondary mb-4">
+					ChatGPT Plugin
+				</p>
+				<p class="body text-secondary mb-4">
+					Open
+				</p>
+				<p class="body text-secondary mb-4">
+					Write about the values of your product in free form, and GPT will ask additional questions and formulate the values.
+				</p>
+			</div>
+		</section>
+		
+		<section class="section" id="Conclusion">
+			<h2 class="h2 mb-4">Conclusion</h2>
+			<div class="max-w-4xl">
+				<p class="body text-secondary mb-4">
+					Let's review what we have accomplished in this first chapter.
+				</p>
+				
+				<h3 class="h3 mb-4">Mission</h3>
+				<p class="body text-secondary mb-4">
+					Our mission is to create a tool that attracts 1,000 new followers through AI-generated personalized responses and follower management. This tool is designed for users who are just starting to build a public account and need their first followers. We aim for our product to become an indispensable assistant in personal brand development and digital communication.
+				</p>
+				
+				<h3 class="h3 mb-4">Vision</h3>
+				<p class="body text-secondary mb-4">
+					Our vision is for our product to become the leading tool for automating digital communication. We strive for users to effectively engage with their audience and grow their accounts using advanced AI technologies. We envision a future where our tool is an integral part of every public account, simplifying and enhancing the process of follower engagement.
+				</p>
+				
+				<h3 class="h3 mb-4">Values</h3>
+				<p class="body text-secondary mb-4">
+					Our values are openness, innovation, and user-centricity. We aim to create a high-quality, safe, and easy-to-use product that is intuitive, flexible, and reliable. Our principles guide us in making the right decisions in complex situations and creating a product that meets user expectations.
+				</p>
+				
+				<h3 class="h3 mb-4">Together</h3>
+				<p class="body text-secondary mb-4">
+					<strong>If someone asks what your company does, you can easily answer by combining the mission, vision, and values into a single paragraph.</strong>
+				</p>
+				<p class="body text-secondary mb-4">
+					Our mission is to create a tool that attracts 1,000 new followers through AI-generated personalized responses and follower management. This tool is designed for users who are just starting to build a public account and need their first followers.
+				</p>
+				<p class="body text-secondary mb-4">
+					We aim for our product to become an indispensable assistant in personal brand development and digital communication.
+				</p>
+				<p class="body text-secondary mb-4">
+					Our vision is for our product to become the leading tool for automating digital communication, helping users effectively engage with their audience and grow their accounts using advanced AI technologies.
+				</p>
+				<p class="body text-secondary mb-4">
+					We envision a future where our tool is an integral part of every public account, simplifying and enhancing the process of follower engagement.
+				</p>
+				<p class="body text-secondary mb-4">
+					Our values are openness, innovation, and user-centricity. We aim to create a high-quality, safe, and easy-to-use product that is intuitive, flexible, and reliable. Our principles guide us in making the right decisions in complex situations and creating a product that meets user expectations.
+				</p>
+			</div>
+		</section>
+		
+		<section class="section">
+			<h2 class="h2 mb-4">Afterword</h2>
+			<div class="max-w-4xl">
+				<p class="body text-secondary mb-4">
+					Well, friends, the product is taking shape. We understand what we are doing and why, and we can explain it to others. Just like the pros, it's time to start looking for a CTO or investors. 😏
+				</p>
+			</div>
+		</section>
+	</main>
+	
+	<div class="container-wide">
+		<Footer />
+	</div>
+</Layout>
+
+<style>
+	/* Chapters Table Styles */
+	.chapters-table {
+		width: 100%;
+		overflow-x: auto;
+	}
+	
+	.chapters-table-content {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	
+	.chapters-table-content tr {
+		border-bottom: 1px solid var(--gray-200);
+	}
+	
+	.chapters-table-content tr:last-child {
+		border-bottom: none;
+	}
+	
+	.chapter-number {
+		padding: var(--space-lg) var(--space-md) var(--space-lg) 0;
+		width: 60px;
+		text-align: right;
+		font-family: var(--font-family);
+		font-size: var(--text-sm);
+		color: var(--gray-500);
+		vertical-align: top;
+	}
+	
+	.chapter-title {
+		padding: var(--space-lg) var(--space-md);
+		width: 300px;
+		vertical-align: top;
+	}
+	
+	.chapter-description {
+		padding: var(--space-lg) var(--space-md);
+		vertical-align: top;
+		font-family: var(--font-family);
+		font-size: var(--text-sm);
+		color: var(--gray-600);
+		line-height: 1.5;
+	}
+	
+	.chapter-action {
+		padding: var(--space-lg) 0 var(--space-lg) var(--space-md);
+		width: 100px;
+		text-align: left;
+		vertical-align: top;
+	}
+	
+	.chapter-link {
+		text-decoration: none;
+		color: var(--accent);
+		cursor: pointer !important;
+	}
+	
+	.chapter-link:hover {
+		text-decoration: underline;
+	}
+	
+	.chapter-name {
+		font-family: var(--font-family);
+		font-size: var(--text-base);
+		font-weight: 500;
+		color: var(--accent);
+	}
+	
+	.chapter-action-link {
+		font-family: var(--font-family);
+		font-size: var(--text-sm);
+		color: var(--accent);
+		text-decoration: none;
+		cursor: pointer !important;
+	}
+	
+	.chapter-action-link:hover {
+		text-decoration: underline;
+	}
+	
+	/* Responsive */
+	@media (max-width: 768px) {
+		.chapter-number {
+			width: 40px;
+			padding: var(--space-md) var(--space-sm) var(--space-md) 0;
+			font-size: var(--text-xs);
+		}
+		
+		.chapter-title {
+			width: 200px;
+			padding: var(--space-md) var(--space-sm);
+		}
+		
+		.chapter-description {
+			padding: var(--space-md) var(--space-sm);
+			font-size: var(--text-xs);
+		}
+		
+		.chapter-action {
+			padding: var(--space-md) 0 var(--space-md) var(--space-sm);
+			width: 80px;
+		}
+		
+		.chapter-name {
+			font-size: var(--text-sm);
+		}
+		
+		.chapter-action-link {
+			font-size: var(--text-xs);
+		}
+	}
+</style>

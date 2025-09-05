@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/layout/Navigation.astro';
+import Footer from '../../components/layout/Footer.astro';
+import Badge from '../../components/ui/Badge.astro';
+---
+
+<Layout title="Writing - About interfaces, processes and AI">
+	<div class="container-wide">
+		<Navigation />
+	</div>
+	
+	<main class="container">
+		<section class="section">
+			<div class="mb-8">
+				<div class="flex items-center gap-4 flex-wrap mb-8">
+					<div class="badge-group">
+						<Badge>Design System</Badge>
+						<Badge>Processes</Badge>
+						<Badge>AI</Badge>
+					</div>
+				</div>
+			</div>
+			
+			<h1 class="h1 text-accent mb-8">About interfaces, processes and AI</h1>
+		</section>
+		
+		<section class="section">
+			<h2 class="h2 mb-8">Articles</h2>
+			
+			<div class="table">
+				<table class="table-content">
+					<tbody>
+						<tr>
+							<td class="table-number">1.</td>
+							<td class="table-title">
+								<a href="/writing/cursor-guide/" class="table-link">
+									<span class="table-name">Cursor</span>
+								</a>
+							</td>
+							<td class="table-description">
+								Guide to setting up and using Cursor
+							</td>
+							<td class="table-action">
+								<a href="/writing/cursor-guide/" class="table-action-link">Open</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="table-number">2.</td>
+							<td class="table-title">
+								<a href="/writing/cursor-no-coding-skills-en/" class="table-link">
+									<span class="table-name">Building neprokin.com Without Programming Skills, in Cursor</span>
+								</a>
+							</td>
+							<td class="table-description">
+								How to create a modern website with Lighthouse Score 100/100 using only Cursor AI
+							</td>
+							<td class="table-action">
+								<a href="/writing/cursor-no-coding-skills-en/" class="table-action-link">Open</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</main>
+	
+	<div class="container-wide">
+		<Footer />
+	</div>
+</Layout>
+

@@ -392,12 +392,12 @@ body {
   position: relative;
   padding-block-start: var(--space-5xl); /* 72px - логическое свойство */
   padding-block-end: var(--space-xl); /* 24px */
-  margin-block-end: 192px; /* 48 модулей (48 × 4px = 192px) */
+  margin-block-end: 48px; /* 12 модулей (12 × 4px = 48px) */
 }
 
 .page-footer {
   padding: 48px 0;
-  border-top: 1px solid var(--border-color);
+  margin-top: auto; /* Прижимаем футер к низу */
   /* Используем широкий контейнер как у шапки */
 }
 
@@ -566,7 +566,7 @@ body {
   
   .page-nav {
     padding-top: 32px; /* Меньший отступ на мобильных */
-    margin-bottom: 64px; /* Меньший отступ до контента */
+    margin-bottom: 16px; /* Меньший отступ до контента */
   }
   
   .nav-links {
@@ -728,5 +728,223 @@ body {
   
   .status-cell {
     font-size: 14px;
+  }
+  
+  /* Universal table mobile styles */
+  .table-number {
+    width: 40px;
+    padding: var(--space-md) var(--space-sm) var(--space-md) 0;
+    font-size: var(--text-xs);
+  }
+  
+  .table-title {
+    width: 200px;
+    padding: var(--space-md) var(--space-sm);
+  }
+  
+  .table-description {
+    padding: var(--space-md) var(--space-sm);
+    font-size: var(--text-xs);
+  }
+  
+  .table-action {
+    padding: var(--space-md) 0 var(--space-md) var(--space-sm);
+    width: 80px;
+  }
+  
+  .table-name {
+    font-size: var(--text-sm);
+  }
+  
+  .table-action-link,
+  .table-action-disabled {
+    font-size: var(--text-xs);
+  }
+}
+
+/* === UNIVERSAL TABLE SYSTEM === */
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-content {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-content tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table-content tr:last-child {
+  border-bottom: none;
+}
+
+/* Table cell types */
+.table-number {
+  padding: var(--space-lg) var(--space-md) var(--space-lg) 0;
+  width: 60px;
+  text-align: right;
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  vertical-align: top;
+}
+
+.table-title {
+  padding: var(--space-lg) var(--space-md);
+  width: 300px;
+  vertical-align: top;
+}
+
+.table-description {
+  padding: var(--space-lg) var(--space-md);
+  vertical-align: top;
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.table-action {
+  padding: var(--space-lg) 0 var(--space-lg) var(--space-md);
+  width: 100px;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Table links */
+.table-link {
+  text-decoration: none;
+  color: var(--accent);
+  cursor: pointer !important;
+}
+
+.table-link:hover {
+  text-decoration: underline;
+}
+
+.table-name {
+  font-family: var(--font-family);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.table-action-link {
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer !important;
+}
+
+.table-action-link:hover {
+  text-decoration: underline;
+}
+
+.table-action-disabled {
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* === HERO SECTION WITH VIDEO === */
+.hero-section {
+  margin-bottom: var(--space-6xl); /* 128px - 32 модуля */
+  padding: var(--space-4xl) 0; /* 64px - 16 модулей */
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5xl); /* 96px - 24 модуля */
+  align-items: center;
+  min-height: 60vh; /* Минимальная высота для hero */
+}
+
+.hero-content {
+  /* Контент слева остается как есть */
+}
+
+.hero-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--space-lg); /* 16px - 4 модуля */
+  overflow: hidden;
+}
+
+.hero-video-element {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border-radius: var(--space-lg); /* 16px - 4 модуля */
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeInVideo 0.8s ease-out 0.3s forwards;
+}
+
+.hero-video-element:hover {
+  transform: scale(1.02);
+}
+
+.hero-fallback-image {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border-radius: var(--space-lg);
+  opacity: 0.8;
+}
+
+/* Анимация появления видео */
+@keyframes fadeInVideo {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Hero */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4xl); /* 64px - 16 модулей */
+    text-align: center;
+  }
+  
+  .hero-video {
+    order: -1; /* Видео сверху на планшетах */
+    margin-bottom: var(--space-2xl); /* 48px - 12 модулей */
+  }
+  
+  .hero-video-element {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    margin-bottom: var(--space-4xl); /* 64px - 16 модулей */
+    padding: var(--space-2xl) 0; /* 32px - 8 модулей */
+  }
+  
+  .hero-grid {
+    gap: var(--space-3xl); /* 48px - 12 модулей */
+    min-height: auto;
+  }
+  
+  .hero-video-element {
+    max-width: 100%;
+    border-radius: var(--space-md); /* 12px - 3 модуля */
   }
 }

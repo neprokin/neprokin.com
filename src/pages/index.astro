@@ -19,13 +19,13 @@ import Badge from '../components/ui/Badge.astro';
 			<div class="hero-grid">
 				<!-- Left Content -->
 				<div class="hero-content">
-					<h1 class="h1 text-accent mb-8">Simple Design of Complex Systems</h1>
+					<h1 class="h1 text-accent mb-8">Simple Design of Complex Systems in 2GIS B2B Platform</h1>
 					
 					<div class="flex items-center gap-4 flex-wrap mb-8">
 						<div class="badge-group">
-							<Badge>SaaS</Badge>
-							<Badge>Design Systems</Badge>
-							<Badge>Support for Startups</Badge>
+							<Badge>AI Enthusiast</Badge>
+							<Badge>Product Designer</Badge>
+							<Badge>Process Designer</Badge>
 						</div>
 						<Button href="https://telegram.me/neprokin">Write in Telegram</Button>
 					</div>
@@ -39,11 +39,12 @@ import Badge from '../components/ui/Badge.astro';
 						loop 
 						playsinline
 						class="hero-video-element"
-						poster="/images/hero-poster.jpg"
+						preload="metadata"
 					>
-						<source src="/videos/heroLogo.mov" type="video/quicktime">
+						<source src="/videos/heroLogo.webm" type="video/webm">
 						<source src="/videos/heroLogo.mp4" type="video/mp4">
-						Your browser does not support the video tag.
+						<!-- Fallback image for browsers that don't support video -->
+						<img src="/logo.svg" alt="Neprokin Logo" class="hero-fallback-image">
 					</video>
 				</div>
 			</div>
@@ -103,7 +104,7 @@ import Badge from '../components/ui/Badge.astro';
 									<span class="company-name">2GIS</span>
 								</a>
 							</td>
-							<td class="role-cell">Senior Product Designer</td>
+							<td class="role-cell">B2B Design Team Lead</td>
 							<td class="status-cell">
 								<span class="status-current">◉</span>
 							</td>
@@ -173,3 +174,80 @@ import Badge from '../components/ui/Badge.astro';
 		<Footer />
 	</div>
 </Layout>
+
+<script>
+	// Hero Video Controller для оптимизации производительности
+	class HeroVideoController {
+		private video: HTMLVideoElement | null;
+		
+		constructor() {
+			this.video = document.querySelector('.hero-video-element') as HTMLVideoElement | null;
+			this.init();
+		}
+		
+		init() {
+			if (!this.video) return;
+			
+			this.setupIntersectionObserver();
+			this.setupPreload();
+			this.handleVisibilityChange();
+		}
+		
+		setupIntersectionObserver() {
+			if (!this.video) return;
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						this.playVideo();
+					} else {
+						this.pauseVideo();
+					}
+				});
+			}, { threshold: 0.5 });
+			
+			observer.observe(this.video);
+		}
+		
+		setupPreload() {
+			if (!this.video) return;
+			
+			// Предзагрузка только метаданных для экономии трафика
+			this.video.preload = 'metadata';
+			
+			// Загрузка видео при hover
+			this.video.addEventListener('mouseenter', () => {
+				if (this.video && this.video.readyState < 3) {
+					this.video.load();
+				}
+			});
+		}
+		
+		handleVisibilityChange() {
+			document.addEventListener('visibilitychange', () => {
+				if (document.hidden) {
+					this.pauseVideo();
+				} else {
+					this.playVideo();
+				}
+			});
+		}
+		
+		playVideo() {
+			if (this.video && this.video.paused) {
+				this.video.play().catch(console.log);
+			}
+		}
+		
+		pauseVideo() {
+			if (this.video && !this.video.paused) {
+				this.video.pause();
+			}
+		}
+	}
+	
+	// Инициализация при загрузке страницы
+	document.addEventListener('DOMContentLoaded', () => {
+		new HeroVideoController();
+	});
+</script>
