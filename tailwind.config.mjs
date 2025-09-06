@@ -52,6 +52,7 @@ export default {
         '4xl': 'var(--space-4xl)',
         '5xl': 'var(--space-5xl)',
         '6xl': 'var(--space-6xl)',
+        '7xl': 'var(--space-7xl)',
         // Сохраняем числовые значения для совместимости
         '1': '4px',
         '2': '8px',

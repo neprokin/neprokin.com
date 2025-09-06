@@ -36,6 +36,7 @@ a .body, a .body-light, a span, a p, a h1, a h2, a h3, a h4, a h5, a h6 {
   cursor: pointer;
 }
 
+
 /* === LINK STYLES === */
 /* Общие стили для всех ссылок */
 a {
@@ -115,6 +116,8 @@ a:hover {
   --space-4xl: 64px;
   --space-5xl: 96px;
   --space-6xl: 128px;
+  --space-7xl: 176px;
+  --space-5xl-half: 88px;
 }
 
 /* === BREAKPOINTS === */
@@ -913,6 +916,7 @@ body {
 /* Spacing utilities */
 .mb-32 { margin-bottom: var(--space-2xl); } /* 32px */
 .mb-16 { margin-bottom: var(--space-lg); }  /* 16px */
+.mb-7xl { margin-bottom: var(--space-5xl-half); } /* 88px - 22 модуля */
 
 /* Layout utilities */
 .flex-center {

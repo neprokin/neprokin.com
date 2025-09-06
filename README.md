@@ -312,6 +312,7 @@ neprokin.com/
 
 ### **📚 Документация:**
 - **🎨 [UI Kit](http://localhost:4321/uikit)** - живая дизайн-система (основной инструмент)
+- **📋 [docs/DEVELOPMENT_PLAN.md](docs/DEVELOPMENT_PLAN.md)** - общий план разработки
 - **📖 [docs/GIT_WORKFLOW.md](docs/GIT_WORKFLOW.md)** - работа с Git
 - **📝 [docs/TITLE_CASE_GUIDE.md](docs/TITLE_CASE_GUIDE.md)** - автоматизация Title Case
 - **📝 .cursor/notepads/** - быстрые справочники для Cursor IDE

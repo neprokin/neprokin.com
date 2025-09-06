@@ -127,4 +127,4 @@ async function main() {
 // Запуск скрипта
 main().catch(console.error);
 
-export { isTitleCase, suggestTitleCase };
+export { isTitleCase, suggestTitleCase };&
