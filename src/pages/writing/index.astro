@@ -1,61 +1,60 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/layout/Navigation.astro';
-import Footer from '../../components/layout/Footer.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import Badge from '../../components/ui/Badge.astro';
 ---
 
-<Layout title="Writing - About interfaces, processes and AI">
-	<div class="container-wide">
-		<Navigation />
-	</div>
-	
-	<main class="container">
+<PageLayout title="Writing - About Interfaces, Processes and AI">
 		<section class="section">
-			<div class="mb-8">
-				<div class="flex items-center gap-4 flex-wrap mb-8">
-					<div class="badge-group">
-						<Badge>Design System</Badge>
-						<Badge>Processes</Badge>
-						<Badge>AI</Badge>
+			<div class="text-content">
+				<h1 class="h1 text-accent mb-8">About Interfaces, Processes and AI</h1>
+				
+				<div class="mb-8">
+					<div class="flex items-center gap-4 flex-wrap mb-8">
+						<div class="badge-group">
+							<Badge>Design System</Badge>
+							<Badge>Processes</Badge>
+							<Badge>AI</Badge>
+						</div>
 					</div>
 				</div>
+				
+				<h2 class="h2 mb-4">Articles and Guides</h2>
+				<p class="body-large text-secondary mb-8">
+					Explore my thoughts on interface design, development processes, and the role of AI in modern product development.<br>
+					Practical guides and insights for designers, developers, and product managers.
+				</p>
 			</div>
-			
-			<h1 class="h1 text-accent mb-8">About interfaces, processes and AI</h1>
 		</section>
 		
 		<section class="section">
 			<h2 class="h2 mb-8">Articles</h2>
 			
-			<div class="table">
-				<table class="table-content">
+			<div class="companies-table">
+				<table class="companies-table-content">
 					<tbody>
 						<tr>
-							<td class="table-number">1.</td>
-							<td class="table-title">
-								<a href="/writing/cursor-guide/" class="table-link">
-									<span class="table-name">Cursor</span>
+							<td class="company-cell">
+								<a href="/writing/cursor-guide/" class="company-link">
+									<span class="company-name">1. Cursor</span>
 								</a>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Guide to setting up and using Cursor
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<a href="/writing/cursor-guide/" class="table-action-link">Open</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">2.</td>
-							<td class="table-title">
-								<a href="/writing/cursor-no-coding-skills-en/" class="table-link">
-									<span class="table-name">Building neprokin.com Without Programming Skills, in Cursor</span>
+							<td class="company-cell">
+								<a href="/writing/cursor-no-coding-skills-en/" class="company-link">
+									<span class="company-name">2. Building neprokin.com Without Programming Skills, in Cursor</span>
 								</a>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								How to create a modern website with Lighthouse Score 100/100 using only Cursor AI
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<a href="/writing/cursor-no-coding-skills-en/" class="table-action-link">Open</a>
 							</td>
 						</tr>
@@ -63,10 +62,5 @@ import Badge from '../../components/ui/Badge.astro';
 				</table>
 			</div>
 		</section>
-	</main>
-	
-	<div class="container-wide">
-		<Footer />
-	</div>
-</Layout>
+</PageLayout>
 

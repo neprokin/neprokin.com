@@ -199,6 +199,12 @@ body {
 .text-secondary { color: var(--text-muted); }
 .text-accent { color: var(--accent); }
 
+/* Начертание шрифта */
+.font-bold { font-weight: 500; }
+
+/* Трансформация текста */
+.title-case { text-transform: capitalize; }
+
 /* === UI COMPONENTS === */
 
 /* Кнопки */
@@ -324,6 +330,18 @@ body {
   margin: 0; /* Убираем центрирование */
   padding: 0 max(72px, 5vw); /* Те же отступы что у шапки */
 }
+
+/* Page content wrapper for consistent layout */
+.page-content {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Text content wrapper for optimal readability */
+.text-content {
+  text-align: left; /* Left align content inside the block */
+}
+
 
 /* Мобильная адаптация */
 @media (max-width: 768px) {
@@ -639,9 +657,6 @@ body {
   margin-bottom: var(--space-4xl); /* 64px margin before table */
 }
 
-.company-logo {
-  /* Remove custom sizing - use original logo dimensions */
-}
 
 .company-logo-link {
   display: inline-block;
@@ -661,15 +676,11 @@ body {
     margin-bottom: var(--space-3xl); /* 48px margin on mobile */
   }
   
-  .company-logo {
-    /* Remove custom sizing - use original logo dimensions */
-  }
 }
 
 /* Companies Table */
 .companies-table {
-  max-width: 800px;
-  margin: 0; /* Left align instead of center */
+  text-align: left; /* Left align table content */
 }
 
 .companies-table-content {
@@ -681,7 +692,7 @@ body {
 .companies-table-content td {
   padding: var(--space-lg) 0; /* 16px vertical padding */
   border: none;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .company-cell {
@@ -737,135 +748,7 @@ body {
   font-weight: var(--font-weight-medium);
 }
 
-/* Mobile responsive for companies table */
-@media (max-width: 768px) {
-  .companies-table-content {
-    font-size: 14px;
-  }
-  
-  .companies-table-content td {
-    padding: var(--space-md) 0; /* 12px vertical padding on mobile */
-  }
-  
-  .company-link {
-    gap: var(--space-sm); /* 8px gap on mobile */
-  }
-  
-  .company-logo {
-    /* Remove custom sizing - use original logo dimensions */
-  }
-  
-  .role-cell {
-    font-size: 14px;
-  }
-  
-  .status-cell {
-    font-size: 14px;
-  }
-  
-  /* Universal table mobile styles */
-  .table-number {
-    width: 40px;
-    padding: var(--space-md) var(--space-sm) var(--space-md) 0;
-    font-size: var(--text-xs);
-  }
-  
-  .table-title {
-    width: 200px;
-    padding: var(--space-md) var(--space-sm);
-  }
-  
-  .table-description {
-    padding: var(--space-md) var(--space-sm);
-    font-size: var(--text-xs);
-  }
-  
-  .table-action {
-    padding: var(--space-md) 0 var(--space-md) var(--space-sm);
-    width: 80px;
-  }
-  
-  .table-name {
-    font-size: var(--text-sm);
-  }
-  
-  .table-action-link,
-  .table-action-disabled {
-    font-size: var(--text-xs);
-  }
-}
-
-/* === UNIVERSAL TABLE SYSTEM === */
-.table {
-  width: 100%;
-  overflow-x: auto;
-}
-
-.table-content {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table-content tr {
-  border-bottom: 1px solid var(--border-color);
-}
-
-.table-content tr:last-child {
-  border-bottom: none;
-}
-
-/* Table cell types */
-.table-number {
-  padding: var(--space-lg) var(--space-md) var(--space-lg) 0;
-  width: 60px;
-  text-align: right;
-  font-family: var(--font-family);
-  font-size: var(--text-sm);
-  color: var(--text-muted);
-  vertical-align: top;
-}
-
-.table-title {
-  padding: var(--space-lg) var(--space-md);
-  width: 300px;
-  vertical-align: top;
-}
-
-.table-description {
-  padding: var(--space-lg) var(--space-md);
-  vertical-align: top;
-  font-family: var(--font-family);
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.table-action {
-  padding: var(--space-lg) 0 var(--space-lg) var(--space-md);
-  width: 100px;
-  text-align: left;
-  vertical-align: top;
-}
-
-/* Table links */
-.table-link {
-  text-decoration: none;
-  color: var(--accent);
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.table-link:hover {
-  color: var(--text-muted);
-}
-
-.table-name {
-  font-family: var(--font-family);
-  font-size: var(--text-base);
-  font-weight: 500;
-  color: var(--accent);
-}
-
+/* Table action links for companies-table system */
 .table-action-link {
   font-family: var(--font-family);
   font-size: var(--text-sm);
@@ -885,6 +768,32 @@ body {
   color: var(--text-muted);
 }
 
+/* Mobile responsive for companies table */
+@media (max-width: 768px) {
+  .companies-table-content {
+    font-size: 14px;
+  }
+  
+  .companies-table-content td {
+    padding: var(--space-md) 0; /* 12px vertical padding on mobile */
+  }
+  
+  .company-link {
+    gap: var(--space-sm); /* 8px gap on mobile */
+  }
+  
+  
+  .role-cell {
+    font-size: 14px;
+  }
+  
+  .status-cell {
+    font-size: 14px;
+  }
+  
+}
+
+
 /* === HERO SECTION WITH VIDEO === */
 .hero-section {
   margin-bottom: var(--space-6xl); /* 128px - 32 модуля */
@@ -897,11 +806,9 @@ body {
   gap: var(--space-5xl); /* 96px - 24 модуля */
   align-items: center;
   min-height: 60vh; /* Минимальная высота для hero */
+  padding: var(--space-4xl) 0; /* 64px вертикально, горизонтальные отступы убираем */
 }
 
-.hero-content {
-  /* Контент слева остается как есть */
-}
 
 .hero-video {
   position: relative;
@@ -958,7 +865,7 @@ body {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4xl); /* 64px - 16 модулей */
-    text-align: center;
+    text-align: left; /* Keep left alignment on mobile */
   }
   
   .hero-video {
@@ -1006,7 +913,6 @@ body {
 /* Spacing utilities */
 .mb-32 { margin-bottom: var(--space-2xl); } /* 32px */
 .mb-16 { margin-bottom: var(--space-lg); }  /* 16px */
-.mb-8 { margin-bottom: var(--space-sm); }   /* 8px */
 
 /* Layout utilities */
 .flex-center {

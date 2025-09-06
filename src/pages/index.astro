@@ -1,28 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/layout/Navigation.astro';
-import Footer from '../components/layout/Footer.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 import Button from '../components/ui/Button.astro';
 import Badge from '../components/ui/Badge.astro';
 ---
 
-<Layout title="Neprokin — Simple Design of Complex Systems" description="I develop a system design based on data, user tasks, and common sense">
-	<!-- Navigation - используем компонент -->
-	<div class="container-wide">
-		<Navigation />
-	</div>
-
-	<!-- Main Content - узкий контейнер, выровнен по левому краю -->
-	<main class="container">
+<PageLayout title="Neprokin — Simple Design of Complex Systems" description="I develop a system design based on data, user tasks, and common sense">
 		<!-- Hero Section with Video -->
-		<section class="hero-section">
+		<section class="section">
 			<div class="hero-grid">
 				<!-- Left Content -->
 				<div class="hero-content">
 					<h1 class="h1 mb-32">
-						<span class="text-accent">Simple Design of Complex Systems</span>
-						<span class="text-secondary"> in </span>
-						<a href="https://dev.2gis.ru/" target="_blank" rel="noopener noreferrer" class="text-secondary">2GIS B2B Platform</a>
+						<span class="text-accent">Simple Design of Complex Systems in </span>
+						<a href="https://dev.2gis.ru/" target="_blank" rel="noopener noreferrer" class="text-accent font-bold">2GIS B2B</a>
 					</h1>
 					
 					<div class="badge-group mb-8">
@@ -63,34 +53,38 @@ import Badge from '../components/ui/Badge.astro';
 
 		<!-- Description & Process Section -->
 		<section class="section">
-			<h2 class="h2 mb-2">I develop a system design based on data, user tasks, and common sense</h2>
-			<p class="body-light text-secondary max-w-lg mb-32">
-				Concept → Goals → Research → Roles and Context → Tasks → Scenarios → Architecture → Prototype → Interface → Handover to Development → Authorial Supervision
-			</p>
+			<div class="text-content">
+				<h2 class="h2 mb-2">I Develop a System Design Based on Data, User Tasks, and Common Sense</h2>
+				<p class="body-light text-secondary mb-32">
+					Concept → Goals → Research → Roles and Context → Tasks → Scenarios → Architecture → Prototype → Interface → Handover to Development → Authorial Supervision
+				</p>
+			</div>
 		</section>
 
 		<!-- Learning Section -->
 		<section class="section">
-			<p class="body-light text-secondary mb-16">
-				Continuous Learning, Part of the Job
-			</p>
-			
-			<div class="flex-logos">
-				<a href="https://gopractice.io/course/pm/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
-					<img src="/images/logos/GP.svg" alt="GoPractice Product Management Course" class="company-logo">
-				</a>
-				<a href="https://dmpatterns.com" target="_blank" rel="noopener noreferrer" class="company-logo-link">
-					<img src="/images/logos/PDM.svg" alt="Product Design Masters" class="company-logo">
-				</a>
-				<a href="https://www.startupschool.org" target="_blank" rel="noopener noreferrer" class="company-logo-link">
-					<img src="/images/logos/YC.svg" alt="Y Combinator Startup School" class="company-logo">
-				</a>
+			<div class="text-content">
+				<h2 class="h2 mb-6">
+					Continuous Learning, Part of the Job
+				</h2>
+				
+				<div class="flex-logos">
+					<a href="https://gopractice.io/course/pm/" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+						<img src="/images/logos/GP.svg" alt="GoPractice Product Management Course" class="company-logo">
+					</a>
+					<a href="https://dmpatterns.com" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+						<img src="/images/logos/PDM.svg" alt="Product Design Masters" class="company-logo">
+					</a>
+					<a href="https://www.startupschool.org" target="_blank" rel="noopener noreferrer" class="company-logo-link">
+						<img src="/images/logos/YC.svg" alt="Y Combinator Startup School" class="company-logo">
+					</a>
+				</div>
 			</div>
 		</section>
 
 		<!-- Portfolio Section -->
 		<section class="section">
-			<h2 class="h2 mb-8">Large companies and startups trust me</h2>
+			<h2 class="h2 mb-6">Large Companies and Startups Trust Me</h2>
 			
 			<!-- Companies Logos Row -->
 			<div class="companies-logos">
@@ -184,21 +178,15 @@ import Badge from '../components/ui/Badge.astro';
 				</table>
 			</div>
 		</section>
-	</main>
+</PageLayout>
 
-	<!-- Footer Section - широкий контейнер как шапка -->
-	<div class="container-wide">
-		<Footer />
-	</div>
-</Layout>
-
-<script>
+<script slot="scripts">
 	// Hero Video Controller для оптимизации производительности
 	class HeroVideoController {
-		private video: HTMLVideoElement | null;
+		video = null;
 		
 		constructor() {
-			this.video = document.querySelector('.hero-video-element') as HTMLVideoElement | null;
+			this.video = document.querySelector('.hero-video-element');
 			this.init();
 		}
 		
@@ -270,12 +258,12 @@ import Badge from '../components/ui/Badge.astro';
 	
 	// Safari Video Controller для устранения черного фона
 	class SafariVideoController {
-		private isSafari: boolean;
-		private video: HTMLVideoElement | null;
+		isSafari = false;
+		video = null;
 		
 		constructor() {
 			this.isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-			this.video = document.querySelector('.hero-video-element') as HTMLVideoElement;
+			this.video = document.querySelector('.hero-video-element');
 			
 			if (this.isSafari && this.video) {
 				this.init();
@@ -287,17 +275,19 @@ import Badge from '../components/ui/Badge.astro';
 			this.forceTransparentBackground();
 			
 			// Обработка событий загрузки
-			this.video!.addEventListener('loadeddata', () => {
-				this.forceTransparentBackground();
-			});
-			
-			this.video!.addEventListener('canplay', () => {
-				this.forceTransparentBackground();
-			});
-			
-			this.video!.addEventListener('playing', () => {
-				this.forceTransparentBackground();
-			});
+			if (this.video) {
+				this.video.addEventListener('loadeddata', () => {
+					this.forceTransparentBackground();
+				});
+				
+				this.video.addEventListener('canplay', () => {
+					this.forceTransparentBackground();
+				});
+				
+				this.video.addEventListener('playing', () => {
+					this.forceTransparentBackground();
+				});
+			}
 			
 			// Дополнительные проверки через интервалы
 			setTimeout(() => this.forceTransparentBackground(), 100);

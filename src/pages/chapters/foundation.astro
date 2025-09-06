@@ -1,16 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/layout/Navigation.astro';
-import Footer from '../../components/layout/Footer.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import Badge from '../../components/ui/Badge.astro';
 ---
 
-<Layout title="Chapter №1 — Foundation - Interface Design Framework">
-	<div class="container-wide">
-		<Navigation />
-	</div>
-	
-	<main class="container">
+<PageLayout title="Chapter №1 — Foundation - Interface Design Framework">
 		<section class="section">
 			<div class="mb-8">
 				<div class="flex items-center gap-4 flex-wrap mb-8">
@@ -21,7 +14,7 @@ import Badge from '../../components/ui/Badge.astro';
 				</div>
 			</div>
 			
-			<h1 class="h1 text-accent mb-8">Chapters №1 — Foundation</h1>
+			<h1 class="h1 text-accent mb-8">Chapter №1 — Foundation</h1>
 			<p class="body-large text-secondary mb-8">The First Chapter</p>
 		</section>
 		
@@ -466,12 +459,7 @@ import Badge from '../../components/ui/Badge.astro';
 				</p>
 			</div>
 		</section>
-	</main>
-	
-	<div class="container-wide">
-		<Footer />
-	</div>
-</Layout>
+</PageLayout>
 
 <style>
 	/* Chapters Table Styles */

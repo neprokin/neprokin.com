@@ -1,0 +1,57 @@
+---
+import Layout from './Layout.astro';
+import Navigation from '../components/layout/Navigation.astro';
+import Footer from '../components/layout/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string | undefined;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} {...(description && { description })}>
+  <!-- Navigation -->
+  <div class="container-wide">
+    <Navigation />
+  </div>
+  
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-wrapper">
+      <slot />
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <div class="container-wide">
+    <Footer />
+  </div>
+  
+  <!-- Page-specific scripts -->
+  <slot name="scripts" />
+</Layout>
+
+<style>
+  /* Универсальная система контейнеров */
+  .main-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content-wrapper {
+    max-width: 800px; /* Узкий контейнер как на WordPress */
+    margin: 0;
+    padding: 0 max(72px, 5vw); /* Те же отступы что у шапки */
+  }
+  
+  /* Мобильная адаптация */
+  @media (max-width: 768px) {
+    .content-wrapper {
+      max-width: none;
+      padding: 0 max(24px, 4vw);
+    }
+  }
+</style>

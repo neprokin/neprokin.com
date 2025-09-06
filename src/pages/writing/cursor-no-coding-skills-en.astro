@@ -1,16 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/layout/Navigation.astro';
-import Footer from '../../components/layout/Footer.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import Badge from '../../components/ui/Badge.astro';
 ---
 
-<Layout title="Building neprokin.com Without Programming Skills, in Cursor">
-	<div class="container-wide">
-		<Navigation />
-	</div>
-	
-	<main class="container">
+<PageLayout title="Building neprokin.com Without Programming Skills, in Cursor">
 		<section class="section">
 			<div class="mb-8">
 				<div class="flex items-center gap-4 flex-wrap mb-8">
@@ -22,7 +15,7 @@ import Badge from '../../components/ui/Badge.astro';
 				</div>
 			</div>
 			
-			<h1 class="h1 text-accent mb-8">Building neprokin.com Without Programming Skills, in Cursor</h1>
+			<h1 class="h1 text-accent mb-8">Building Neprokin.com Without Programming Skills, in Cursor</h1>
 			<p class="body-large text-secondary mb-8">How to create a modern website with Lighthouse Score 100/100 using only Cursor AI without deep programming skills.</p>
 		</section>
 		
@@ -33,7 +26,7 @@ import Badge from '../../components/ui/Badge.astro';
 					In this article, I'll share how to create a modern website with maximum performance metrics without having deep programming skills. Using only Cursor AI and following the right process, we created a site with Lighthouse Score 100/100 that outperforms many professional solutions. This is a real case study that shows how AI tools make web development accessible to everyone.
 				</p>
 				
-				<h2 class="h2 mb-4">1. Setting Up Cursor AI</h2>
+				<h2 class="h2 mb-4">1. Setting up Cursor AI</h2>
 				<p class="body text-secondary mb-4">
 					The first step was properly configuring Cursor for efficient work. We created a <code class="code">.cursorrules</code> file in the project root describing:
 				</p>
@@ -135,7 +128,7 @@ import Badge from '../../components/ui/Badge.astro';
 					<li><strong>Hosting Cost</strong>: $0/month (Vercel Free Tier) ✅</li>
 				</ul>
 				
-				<h2 class="h2 mb-4">11. Comparison with Previous Version</h2>
+				<h2 class="h2 mb-4">11. Comparison With Previous Version</h2>
 				<p class="body text-secondary mb-4">
 					Comparison with the previous WordPress version shows significant improvements:
 				</p>
@@ -169,9 +162,4 @@ import Badge from '../../components/ui/Badge.astro';
 				</p>
 			</div>
 		</section>
-	</main>
-	
-	<div class="container-wide">
-		<Footer />
-	</div>
-</Layout>
+</PageLayout>

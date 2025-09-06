@@ -1,30 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/layout/Navigation.astro';
-import Footer from '../../components/layout/Footer.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import Badge from '../../components/ui/Badge.astro';
 ---
 
-<Layout title="βeta Chapters - Interface Design Framework">
-	<div class="container-wide">
-		<Navigation />
-	</div>
-	
-	<main class="container">
+<PageLayout title="βeta Chapters - Interface Design Framework">
 		<section class="section">
-			<h1 class="h1 text-accent mb-8">Interface Design Framework</h1>
-			
-			<div class="mb-8">
-				<div class="flex items-center gap-4 flex-wrap mb-8">
-					<div class="badge-group">
-						<Badge>Methodology</Badge>
-						<Badge>Templates</Badge>
-						<Badge>Tools</Badge>
+			<div class="text-content">
+				<h1 class="h1 text-accent mb-8">Interface Design Framework</h1>
+				
+				<div class="mb-8">
+					<div class="flex items-center gap-4 flex-wrap mb-8">
+						<div class="badge-group">
+							<Badge>Methodology</Badge>
+							<Badge>Templates</Badge>
+							<Badge>Tools</Badge>
+						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="max-w-4xl">
+				
 				<h2 class="h2 mb-4">Practical Course on Interface Design</h2>
 				<p class="body-large text-secondary mb-8">
 					In the «Interface Design Framework» course, you'll master 24 key stages of interface development—from value proposition to execution oversight.<br>
@@ -36,296 +29,272 @@ import Badge from '../../components/ui/Badge.astro';
 		<section class="section">
 			<h2 class="h2 mb-8">Chapters</h2>
 			
-			<div class="table">
-				<table class="table-content">
+			<div class="companies-table">
+				<table class="companies-table-content">
 					<tbody>
 						<tr>
-							<td class="table-number">1.</td>
-							<td class="table-title">
-								<a href="/chapters/foundation/" class="table-link">
-									<span class="table-name">Foundation</span>
+							<td class="company-cell">
+								<a href="/chapters/foundation/" class="company-link">
+									<span class="company-name">1. Foundation</span>
 								</a>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								To start working on a product, it's essential to understand what we are going to do, what problems we are solving, and why.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<a href="/chapters/foundation/" class="table-action-link">Open</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">2.</td>
-							<td class="table-title">
-								<span class="table-name">Forming the Product Concept</span>
+							<td class="company-cell">
+								<span class="company-name">2. Forming the Product Concept</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Developing the main idea and conceptual foundations of the product.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">3.</td>
-							<td class="table-title">
-								<span class="table-name">Defining Product Goals</span>
+							<td class="company-cell">
+								<span class="company-name">3. Defining Product Goals</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Setting specific goals and expected outcomes for the product.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">4.</td>
-							<td class="table-title">
-								<span class="table-name">Research</span>
+							<td class="company-cell">
+								<span class="company-name">4. Research</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Analyzing the market, competitors, client needs, and technical possibilities to validate the product concept.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">5.</td>
-							<td class="table-title">
-								<span class="table-name">Identifying User Tasks</span>
+							<td class="company-cell">
+								<span class="company-name">5. Identifying User Tasks</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Using the Jobs To Be Done methodology to define user tasks, conducting interviews with users, gathering expert opinions from development team members, business clients, and stakeholders.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">6.</td>
-							<td class="table-title">
-								<span class="table-name">Business Processes of the New Product</span>
+							<td class="company-cell">
+								<span class="company-name">6. Business Processes of the New Product</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Developing key processes related to the operation and management of the new product in the market.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">7.</td>
-							<td class="table-title">
-								<span class="table-name">High-Level Effort Estimation</span>
+							<td class="company-cell">
+								<span class="company-name">7. High-Level Effort Estimation</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Planning the resources and time needed for the project.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">8.</td>
-							<td class="table-title">
-								<span class="table-name">Business Processes of the New Product</span>
+							<td class="company-cell">
+								<span class="company-name">8. Business Processes of the New Product</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Developing key processes related to the operation and management of the new product in the market.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">9.</td>
-							<td class="table-title">
-								<span class="table-name">High-Level Effort Estimation</span>
+							<td class="company-cell">
+								<span class="company-name">9. High-Level Effort Estimation</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Planning the resources and time needed for the project.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">10.</td>
-							<td class="table-title">
-								<span class="table-name">Financial Model</span>
+							<td class="company-cell">
+								<span class="company-name">10. Financial Model</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Developing the economic model of the product, including budgeting and revenue forecasting.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">11.</td>
-							<td class="table-title">
-								<span class="table-name">Validation and Task Prioritization</span>
+							<td class="company-cell">
+								<span class="company-name">11. Validation and Task Prioritization</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Verifying the concept and determining task priorities.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">12.</td>
-							<td class="table-title">
-								<span class="table-name">Preliminary Work Plan and Release Date</span>
+							<td class="company-cell">
+								<span class="company-name">12. Preliminary Work Plan and Release Date</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Creating a project plan with key milestones and timelines.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">13.</td>
-							<td class="table-title">
-								<span class="table-name">User Scenarios</span>
+							<td class="company-cell">
+								<span class="company-name">13. User Scenarios</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Developing scenarios for the product's use by end-users.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">14.</td>
-							<td class="table-title">
-								<span class="table-name">Testing User Scenarios</span>
+							<td class="company-cell">
+								<span class="company-name">14. Testing User Scenarios</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Checking the practicality and effectiveness of the scenarios.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">15.</td>
-							<td class="table-title">
-								<span class="table-name">Product Architecture</span>
+							<td class="company-cell">
+								<span class="company-name">15. Product Architecture</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Defining the structure and technical aspects of the product.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">16.</td>
-							<td class="table-title">
-								<span class="table-name">Prototype (Interactive Page Schemes)</span>
+							<td class="company-cell">
+								<span class="company-name">16. Prototype (Interactive Page Schemes)</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Creating a working prototype to demonstrate functionality.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">17.</td>
-							<td class="table-title">
-								<span class="table-name">Testing</span>
+							<td class="company-cell">
+								<span class="company-name">17. Testing</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Checking the prototype for errors and making improvements.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">18.</td>
-							<td class="table-title">
-								<span class="table-name">Feature Breakdown</span>
+							<td class="company-cell">
+								<span class="company-name">18. Feature Breakdown</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Defining and planning individual features of the product.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">19.</td>
-							<td class="table-title">
-								<span class="table-name">Developing the Visual Concept</span>
+							<td class="company-cell">
+								<span class="company-name">19. Developing the Visual Concept</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Creating the design of the interface and user experience.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">20.</td>
-							<td class="table-title">
-								<span class="table-name">Finalizing the Interface Design</span>
+							<td class="company-cell">
+								<span class="company-name">20. Finalizing the Interface Design</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Finalizing the product design.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">21.</td>
-							<td class="table-title">
-								<span class="table-name">Edge Cases and Micro-Animations</span>
+							<td class="company-cell">
+								<span class="company-name">21. Edge Cases and Micro-Animations</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Detailing the interface, including handling exceptional situations and animations.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">22.</td>
-							<td class="table-title">
-								<span class="table-name">Testing</span>
+							<td class="company-cell">
+								<span class="company-name">22. Testing</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Final testing of the product before launch.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">23.</td>
-							<td class="table-title">
-								<span class="table-name">Handover to Development</span>
+							<td class="company-cell">
+								<span class="company-name">23. Handover to Development</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Transferring all necessary materials and documentation to the development team.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
 						<tr>
-							<td class="table-number">24.</td>
-							<td class="table-title">
-								<span class="table-name">Authorial Supervision</span>
+							<td class="company-cell">
+								<span class="company-name">24. Authorial Supervision</span>
 							</td>
-							<td class="table-description">
+							<td class="role-cell">
 								Monitoring and controlling the development and implementation process.
 							</td>
-							<td class="table-action">
+							<td class="status-cell">
 								<span class="table-action-disabled">Open</span>
 							</td>
 						</tr>
@@ -333,10 +302,5 @@ import Badge from '../../components/ui/Badge.astro';
 				</table>
 			</div>
 		</section>
-	</main>
-	
-	<div class="container-wide">
-		<Footer />
-	</div>
-</Layout>
+</PageLayout>
 

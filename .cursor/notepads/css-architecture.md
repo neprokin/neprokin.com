@@ -46,6 +46,15 @@
 .btn   { padding: var(--space-sm) var(--space-lg); } /* 8px 16px */
 ```
 
+### **Unified table system (.companies-table):**
+```css
+.companies-table { max-width: 800px; margin: 0; }
+.companies-table-content { width: 100%; border-collapse: collapse; }
+.company-cell { width: 40%; } /* Title/Name column */
+.role-cell { width: 45%; } /* Description column */
+.status-cell { width: 15%; text-align: right; } /* Action column */
+```
+
 ### **4px grid compliance:**
 ```css
 border-radius: var(--space-sm); /* 8px - все скругления */
@@ -73,6 +82,22 @@ border-radius: var(--space-sm); /* 8px - все скругления */
 2. **Компонентные** → globals.css  
 3. **Utility** → tailwind.config.mjs
 4. **Проверить** → /uikit
+
+### **Таблицы (единая система):**
+```html
+<!-- ✅ Всегда используй .companies-table -->
+<div class="companies-table">
+  <table class="companies-table-content">
+    <tbody>
+      <tr>
+        <td class="company-cell"><span class="company-name">Title</span></td>
+        <td class="role-cell">Description</td>
+        <td class="status-cell"><a class="table-action-link">Action</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
 
 ### **Naming:**
 ```css

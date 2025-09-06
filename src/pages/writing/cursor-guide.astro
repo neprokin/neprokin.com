@@ -1,16 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navigation from '../../components/layout/Navigation.astro';
-import Footer from '../../components/layout/Footer.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
 import Badge from '../../components/ui/Badge.astro';
 ---
 
-<Layout title="Cursor Guide - Guide to setting up and using Cursor">
-	<div class="container-wide">
-		<Navigation />
-	</div>
-	
-	<main class="container">
+<PageLayout title="Cursor Guide - Guide to setting up and using Cursor">
 		<section class="section">
 			<div class="mb-8">
 				<div class="flex items-center gap-4 flex-wrap mb-8">
@@ -80,12 +73,7 @@ import Badge from '../../components/ui/Badge.astro';
 				</ul>
 			</div>
 		</section>
-	</main>
-	
-	<div class="container-wide">
-		<Footer />
-	</div>
-</Layout>
+</PageLayout>
 
 <style>
 	.code {
