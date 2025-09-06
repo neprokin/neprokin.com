@@ -18,23 +18,44 @@ p, span, h1, h2, h3, h4, h5, h6 {
 
 /* Override text cursor for ALL interactive text elements */
 a, a.body, a.body-light, .nav-item, .footer-links a, .company-link, .company-logo-link {
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
 /* Ensure all links have pointer cursor */
 a[href] {
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
 /* Force pointer cursor for all clickable elements */
 *[onclick], *[href], button, input[type="button"], input[type="submit"] {
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
 /* Override text cursor for text inside links */
 a .body, a .body-light, a span, a p, a h1, a h2, a h3, a h4, a h5, a h6 {
-  cursor: pointer !important;
+  cursor: pointer;
 }
+
+/* === LINK STYLES === */
+/* Общие стили для всех ссылок */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--text-muted);
+}
+
+/* Utility classes */
+.cursor-pointer { cursor: pointer; }
+.bg-transparent { 
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+}
+.no-border { border: none; }
 
 /* === EXTENDED COLOR SYSTEM === */
 :root {
@@ -275,6 +296,17 @@ body {
 
 .badge:hover {
   background-color: var(--border-color);
+}
+
+/* Ссылки внутри badge */
+.badge-link {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.badge-link:hover {
+  color: var(--text-muted);
 }
 
 /* === LAYOUT UTILITIES === */
@@ -623,7 +655,8 @@ body {
 
 /* Mobile responsive for logos */
 @media (max-width: 768px) {
-  .companies-logos {
+  .companies-logos,
+  .flex-logos {
     gap: var(--space-xl); /* 24px gap on mobile */
     margin-bottom: var(--space-3xl); /* 48px margin on mobile */
   }
@@ -818,11 +851,12 @@ body {
 .table-link {
   text-decoration: none;
   color: var(--accent);
-  cursor: pointer !important;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .table-link:hover {
-  text-decoration: underline;
+  color: var(--text-muted);
 }
 
 .table-name {
@@ -837,11 +871,12 @@ body {
   font-size: var(--text-sm);
   color: var(--accent);
   text-decoration: none;
-  cursor: pointer !important;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .table-action-link:hover {
-  text-decoration: underline;
+  color: var(--text-muted);
 }
 
 .table-action-disabled {
@@ -885,9 +920,13 @@ body {
   max-width: 500px;
   border-radius: var(--space-lg); /* 16px - 4 модуля */
   transition: transform 0.3s ease;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   animation: fadeInVideo 0.8s ease-out 0.3s forwards;
+  background: transparent;
+  background-color: transparent;
+  background-image: none;
+  mix-blend-mode: normal;
 }
 
 .hero-video-element:hover {
@@ -947,4 +986,41 @@ body {
     max-width: 100%;
     border-radius: var(--space-md); /* 12px - 3 модуля */
   }
+}
+
+/* Safari-специфичные стили для устранения черного фона */
+@supports (-webkit-appearance: none) {
+  .hero-video-element {
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+  
+  .hero-video {
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
+  }
+}
+
+/* === UTILITY CLASSES === */
+/* Spacing utilities */
+.mb-32 { margin-bottom: var(--space-2xl); } /* 32px */
+.mb-16 { margin-bottom: var(--space-lg); }  /* 16px */
+.mb-8 { margin-bottom: var(--space-sm); }   /* 8px */
+
+/* Layout utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl); /* 32px */
+  flex-wrap: wrap;
+}
+
+.flex-logos {
+  display: flex;
+  gap: var(--space-2xl); /* 32px gap between logos */
+  justify-content: flex-start; /* Left align */
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4xl); /* 64px margin before next section */
 }
