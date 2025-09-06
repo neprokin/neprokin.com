@@ -298,12 +298,10 @@ neprokin.com/
 
 ## 📚 Документация
 
-### **Cursor-integrated документация (всегда под рукой в IDE):**
-- **🎨 [/uikit](http://localhost:4321/uikit)** - живая дизайн-система (основной инструмент)
-- **📝 .cursor/notepads/css-architecture.md** - архитектура CSS
-- **🚀 .cursor/notepads/deployment.md** - деплой и настройка  
-- **🔧 .cursor/notepads/development-workflow.md** - ежедневный workflow
-- **⚡ .cursor/notepads/quick-reference.md** - быстрый справочник CSS
+### **📚 Документация:**
+- **🎨 [UI Kit](http://localhost:4321/uikit)** - живая дизайн-система (основной инструмент)
+- **📖 [docs/GIT_WORKFLOW.md](docs/GIT_WORKFLOW.md)** - работа с Git
+- **📝 .cursor/notepads/** - быстрые справочники для Cursor IDE
 
 ---
 

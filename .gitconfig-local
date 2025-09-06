@@ -1,0 +1,19 @@
+[alias]
+    # Поиск коммитов
+    find-commit = "!f() { git log --oneline --all --graph | grep -i \"$1\"; }; f"
+    find-by-hash = "!f() { git log --oneline --all | grep \"$1\"; }; f"
+    find-by-message = "!f() { git log --oneline --all --grep=\"$1\"; }; f"
+    
+    # Синхронизация
+    sync = "!git fetch origin && git status"
+    sync-all = "!git fetch --all && git status"
+    
+    # История
+    hist = "log --oneline --all --graph --decorate"
+    hist-detailed = "log --oneline --all --graph --decorate --stat"
+    
+    # Восстановление
+    restore-commit = "!f() { git checkout \"$1\" && git switch -c \"restored-from-$1\"; }; f"
+    
+    # Статус проекта
+    project-status = "!echo '📊 Статус проекта:' && git status && echo '🌐 Ветки:' && git branch -a && echo '📈 Последние коммиты:' && git log --oneline -5"
