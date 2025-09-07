@@ -32,14 +32,4 @@ export const collections = {
       order: z.number().optional(),
     }),
   }),
-  
-  // О себе
-  about: defineCollection({
-    type: 'content',
-    schema: z.object({
-      title: z.string(),
-      description: z.string(),
-      lastUpdated: z.date(),
-    }),
-  }),
 };
