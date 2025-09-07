@@ -158,7 +158,7 @@ export function createExcerpt(content: string, maxLength: number = 160): string 
 // Расширение контента с метаданными
 export function enrichBlogPost(post: BlogPost, content?: string): BlogPostWithMeta {
   const meta = content ? generateContentMeta(content) : {
-    readingTime: post.data.readingTime
+    readingTime: post.data.readingTime || 0
   };
   
   return {
@@ -190,7 +190,7 @@ export function groupBlogPostsByYear(posts: BlogPost[]): Record<number, BlogPost
 
 export function groupProjectsByStatus(projects: Project[]): Record<string, Project[]> {
   return projects.reduce((groups, project) => {
-    const status = project.data.status;
+    const status = project.data.status || 'unknown';
     if (!groups[status]) {
       groups[status] = [];
     }
@@ -211,7 +211,7 @@ export function searchContent<T extends BlogPost | Project>(
   
   return items.filter(item => {
     return searchFields.some(field => {
-      const value = item.data[field];
+      const value = item.data[field as keyof typeof item.data];
       if (typeof value === 'string') {
         return value.toLowerCase().includes(searchTerm);
       }

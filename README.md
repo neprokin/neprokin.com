@@ -11,6 +11,7 @@
 - **Frontend**: Astro 5.x (максимальная производительность)
 - **UI System**: Кастомный монохромный UI-kit
 - **Performance**: Lighthouse Score 100/100
+- **Typography**: Автоматическая типографика Art. Lebedev уровня
 
 ---
 
@@ -40,6 +41,7 @@ Obsidian Vault → GitHub Repository → Vercel Build → Live Website
 ### **Монохромная система дизайна**
 - **6 цветов** в серой палитре (#FDFDFD → #0A0A0A)
 - **System fonts** типографика (300, 500 weights) для быстрой загрузки
+- **Автоматическая типографика** через astro-typograf (RU/EN)
 - **Модульная сетка 4px** для консистентности
 - **Светлая/темная тема** с автоматическим переключением
 
