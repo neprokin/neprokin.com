@@ -9,7 +9,7 @@
     "projectRules": ".cursor/index.mdc",
     "notepads": ".cursor/notepads/",
     "ignore": ".cursorignore",
-    "uiKit": "ui-kit-preview.html"
+    "uiKit": "/uikit"
   },
   "features": {
     "agentMode": true,

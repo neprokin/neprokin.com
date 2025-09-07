@@ -39,14 +39,15 @@ Obsidian Vault → GitHub Repository → Vercel Build → Live Website
 
 ### **Монохромная система дизайна**
 - **6 цветов** в серой палитре (#FDFDFD → #0A0A0A)
-- **IBM Plex Sans** типографика (300, 500 weights)
+- **System fonts** типографика (300, 500 weights) для быстрой загрузки
 - **Модульная сетка 4px** для консистентности
 - **Светлая/темная тема** с автоматическим переключением
 
 ### **Просмотр UI Kit**
 ```bash
 # Откройте в браузере
-open ui-kit-preview.html
+npm run dev
+# Затем перейдите на http://localhost:4321/uikit
 ```
 
 ---
@@ -84,7 +85,7 @@ neprokin.com/
 │   │   └── ui-kit-demo.css # Preview стили
 │   └── utils/            # Утилиты
 ├── public/               # Статические файлы
-└── ui-kit-preview.html   # Интерактивный UI Kit
+└── /uikit                # Интерактивный UI Kit (через dev server)
 ```
 
 ---

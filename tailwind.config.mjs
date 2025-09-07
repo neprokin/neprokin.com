@@ -25,7 +25,7 @@ export default {
       
       // Типографика из UI Kit
       fontFamily: {
-        sans: ['IBM Plex Sans', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['system-ui', '-apple-system', 'sans-serif'],
       },
       
       fontSize: {
