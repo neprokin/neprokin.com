@@ -164,10 +164,12 @@ a:hover {
 
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
 }
 
 body {
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
 }
 
 /* === TYPOGRAPHY CLASSES === */
@@ -344,7 +346,7 @@ body {
 /* Узкий контейнер для основного контента */
 .container {
   max-width: 800px; /* Уже чем шапка, как на WordPress */
-  margin: 0; /* Убираем центрирование */
+  margin: 0 auto; /* Центрируем контейнер */
   padding: 0 max(72px, 5vw); /* Те же отступы что у шапки */
 }
 
