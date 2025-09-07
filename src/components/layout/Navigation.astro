@@ -20,10 +20,10 @@ const navItems = [
     
     <!-- Mobile menu button -->
     <button class="nav-toggle" aria-label="Toggle navigation" id="nav-toggle">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hamburger-icon">
+        <line x1="3" y1="6" x2="21" y2="6" class="hamburger-line hamburger-line-1"></line>
+        <line x1="3" y1="12" x2="21" y2="12" class="hamburger-line hamburger-line-2"></line>
+        <line x1="3" y1="18" x2="21" y2="18" class="hamburger-line hamburger-line-3"></line>
       </svg>
     </button>
     
@@ -51,6 +51,7 @@ const navItems = [
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('nav-open');
+      navToggle.classList.toggle('active');
       
       // Update aria-expanded for accessibility
       const isOpen = navLinks.classList.contains('nav-open');
@@ -62,6 +63,7 @@ const navItems = [
     navItems.forEach(item => {
       item.addEventListener('click', () => {
         navLinks.classList.remove('nav-open');
+        navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
@@ -70,6 +72,7 @@ const navItems = [
     document.addEventListener('click', (e) => {
       if (!navToggle.contains(e.target as Node) && !navLinks.contains(e.target as Node)) {
         navLinks.classList.remove('nav-open');
+        navToggle.classList.remove('active');
         navToggle.setAttribute('aria-expanded', 'false');
       }
     });
