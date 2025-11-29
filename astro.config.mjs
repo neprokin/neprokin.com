@@ -6,16 +6,16 @@
 // Основные интеграции:
 // - Tailwind CSS — утилитарные стили
 // - MDX — расширенный Markdown
-// - Typograf — автоматическая типографика
+// - astro-typograf — автоматическая типографика (RU/EN)
 //
-// Типографика (две системы):
-// 1. astro-typograf — для .astro страниц (работает после рендеринга)
-// 2. remark-typograf — для Markdown/MDX (работает до рендеринга)
+// Типографика:
+// - Используем astro-typograf для всего контента
+// - htmlEntity: 'digit' — возвращает &#160; вместо Unicode
+// - Браузер корректно отображает HTML-сущности
 //
-// Почему две системы:
-// - Markdown-парсер экранирует HTML-сущности (&nbsp; → &amp;nbsp;)
-// - Поэтому для Markdown используем remark-плагин с UTF-символами
-// - Для .astro страниц astro-typograf работает корректно
+// ⚠️ ИЗВЕСТНЫЙ БАГ typograf v7.6.0:
+// - htmlEntity: { type: 'utf' } возвращает 'undefined' вместо символов
+// - Поэтому используем type: 'digit'
 //
 // =============================================================================
 
@@ -25,7 +25,8 @@ import mdx from '@astrojs/mdx';
 import remarkWikiLink from 'remark-wiki-link';
 import rehypeHighlight from 'rehype-highlight';
 import typograf from 'astro-typograf';
-import remarkTypograf from './src/plugins/remark-typograf.mjs';
+// remark-typograf отключён — astro-typograf справляется со всем контентом
+// import remarkTypograf from './src/plugins/remark-typograf.mjs';
 
 // https://astro.build/config
 export default defineConfig({
