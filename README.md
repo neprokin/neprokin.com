@@ -276,27 +276,69 @@ vercel domains inspect neprokin.com
 ### **Структура проекта (обновлено)**
 ```
 neprokin.com/
-├── docs/                   # 📚 Вся техническая документация
-│   ├── README.md          # Индекс документации
-│   ├── CSS_ARCHITECTURE.md # Архитектура CSS
-│   ├── QUICK_REFERENCE.md # Быстрый справочник
-│   ├── TITLE_CASE_GUIDE.md # Автоматизация Title Case
-│   └── [другие .md файлы] # Техническая документация
+├── docs/                   # 📚 Техническая документация
+│   ├── DEVELOPMENT_PLAN.md # План разработки
+│   ├── GIT_WORKFLOW.md     # Работа с Git
+│   └── TITLE_CASE_GUIDE.md # Автоматизация Title Case
 ├── scripts/               # 🔧 Автоматизация и утилиты
 │   └── check-title-case.js # Проверка Title Case
 ├── src/
 │   ├── components/        # Переиспользуемые компоненты
 │   │   ├── ui/           # Button, Card, Badge
-│   │   ├── layout/       # Navigation, Footer
-│   │   └── content/      # BlogCard, ProjectCard
+│   │   └── layout/       # Navigation, Footer
 │   ├── content/          # Markdown контент (Obsidian)
-│   ├── pages/            # Astro страницы + /uikit
+│   │   ├── posts/        # 📝 Минималистичные публикации (/p/slug)
+│   │   ├── blog/         # Статьи блога (будущее)
+│   │   └── projects/     # Портфолио (будущее)
+│   ├── pages/            # Astro страницы
+│   │   ├── p/            # 📝 Posts шаблон ([...slug].astro)
+│   │   └── uikit.astro   # UI Kit preview
+│   ├── plugins/          # 🔌 Remark/Rehype плагины
+│   │   └── remark-typograf.mjs # Типографика для Markdown
 │   ├── styles/           # CSS архитектура (globals.css)
 │   └── layouts/          # Layout.astro (Critical CSS)
 ├── public/               # Статические файлы
 ├── vercel.json          # Vercel конфигурация
 └── README.md            # Главная документация (этот файл)
 ```
+
+---
+
+## 📝 Posts — Минималистичные публикации
+
+### **Telegraph-style публикации**
+
+Простая система для быстрого шаринга контента в Markdown:
+
+```
+src/content/posts/
+└── my-article.md  →  neprokin.com/p/my-article
+```
+
+### **Создание поста**
+
+1. Создайте файл в `src/content/posts/`:
+```markdown
+---
+title: Название статьи
+---
+
+Ваш контент в Markdown...
+```
+
+2. Commit & push — статья автоматически появится на сайте
+
+### **Особенности**
+- 📐 **Оптимальная ширина** — 680px для комфортного чтения
+- 🔤 **Автотипографика** — неразрывные пробелы, правильные кавычки
+- 📊 **Таблицы, код, цитаты** — полная поддержка Markdown
+- 🎨 **Минималистичный дизайн** — только контент и мини-футер
+- 📱 **Адаптивность** — корректное отображение на мобильных
+
+### **Техническая реализация**
+- **Коллекция**: `src/content/config.ts` → `posts`
+- **Шаблон**: `src/pages/p/[...slug].astro`
+- **Типографика**: `src/plugins/remark-typograf.mjs` (remark-плагин для Markdown)
 
 ---
 
