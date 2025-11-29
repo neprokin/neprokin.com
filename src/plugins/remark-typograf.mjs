@@ -4,55 +4,61 @@
  * =============================================================================
  * 
  * Применяет типографические правила к текстовому контенту в Markdown.
- * Работает на уровне AST (до преобразования в HTML), что позволяет
- * избежать проблем с экранированием HTML-сущностей.
- * 
- * Что делает:
- * - Добавляет неразрывные пробелы после коротких слов (предлоги, союзы)
- * - Добавляет неразрывные пробелы перед последним коротким словом
- * - Исправляет типографику для русского и английского языков
- * 
- * Почему remark, а не astro-typograf:
- * - astro-typograf работает после рендеринга HTML
- * - Markdown-парсер экранирует HTML-сущности (&nbsp; → &amp;nbsp;)
- * - remark-плагин работает до рендеринга, используя Unicode-символы
- * 
- * Использование:
- * В astro.config.mjs добавить в remarkPlugins:
- *   import remarkTypograf from './src/plugins/remark-typograf.mjs';
- *   remarkPlugins: [remarkTypograf, ...]
+ * Работает на уровне AST (до преобразования в HTML).
  * 
  * Документация Typograf: https://github.com/typograf/typograf
  * =============================================================================
  */
 
 import Typograf from 'typograf';
-import { visit } from 'unist-util-visit';
 
-// Создаём экземпляр Typograf с настройками
+// Создаём экземпляр Typograf
 const tp = new Typograf({
   locale: ['ru', 'en-US'],
-  // Используем UTF-символы напрямую, без HTML-сущностей
-  // Это критично для работы с Markdown — иначе &nbsp; будет экранирован
-  htmlEntity: { type: 'utf' },
+  htmlEntity: { type: 'digit' },
 });
 
 // Настройки правил типографики
-// lengthShortWord: 3 — слова до 3 символов считаются "короткими"
 tp.setSetting('common/nbsp/afterShortWord', 'lengthShortWord', 3);
 tp.setSetting('common/nbsp/beforeShortLastWord', 'lengthShortWord', 3);
 
 /**
+ * Конвертирует HTML-сущности в Unicode символы
+ */
+function htmlEntitiesToUnicode(text) {
+  if (!text || typeof text !== 'string') return text;
+  return text
+    .replace(/&#160;/g, '\u00A0')
+    .replace(/&#171;/g, '«')
+    .replace(/&#187;/g, '»')
+    .replace(/&#8212;/g, '—')
+    .replace(/&#8211;/g, '–')
+    .replace(/&#8230;/g, '…')
+    .replace(/&#8364;/g, '€');
+}
+
+/**
+ * Рекурсивно обходит дерево AST и применяет типографику к текстовым узлам
+ */
+function processNode(node) {
+  if (node.type === 'text' && node.value && typeof node.value === 'string') {
+    const result = tp.execute(node.value);
+    if (result && typeof result === 'string') {
+      node.value = htmlEntitiesToUnicode(result);
+    }
+  }
+  
+  if (node.children && Array.isArray(node.children)) {
+    node.children.forEach(processNode);
+  }
+}
+
+/**
  * Remark-плагин для применения типографики
- * @returns {function} Transformer функция для обработки AST
  */
 export default function remarkTypograf() {
   return (tree) => {
-    // Обходим все текстовые узлы в AST
-    visit(tree, 'text', (node) => {
-      // Применяем типографику к тексту
-      node.value = tp.execute(node.value);
-    });
+    processNode(tree);
   };
 }
 

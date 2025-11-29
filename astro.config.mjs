@@ -50,26 +50,22 @@ export default defineConfig({
     }),
     mdx(),
     typograf({
-      // Обрабатываем ВСЕ текстовые элементы
+      // Обрабатываем текстовые элементы, КРОМЕ Markdown-контента
       selector: '*',
-      // Исключаем элементы, которые НЕ должны обрабатываться
-      // Добавляем .prose для исключения Markdown-контента (обрабатывается отдельно)
-      ignore: ['pre', 'code', 'script', 'style', 'textarea', 'input', '.prose', '.post-body'],
-      // Конструктор Typograf
+      // Исключаем:
+      // - pre, code, script, style, textarea, input — технические элементы
+      // - title — заголовок страницы
+      // - .prose, .post-body, .post-content, article — Markdown обрабатывается remark-typograf
+      ignore: ['pre', 'code', 'script', 'style', 'textarea', 'input', 'title', 'article', '.prose', '.post-body', '.post-content'],
       typografOptions: {
         locale: ['ru', 'en-US'],
-        // Используем Unicode-символы вместо HTML-сущностей
-        // чтобы избежать проблем с экранированием
-        htmlEntity: { type: 'utf' },
+        // Используем 'digit' и конвертируем в браузере, т.к. 'utf'/'name' могут ломаться
+        htmlEntity: { type: 'digit' },
       },
-      // Тонкая настройка правил (пример: после коротких слов в RU)
       typografSettings: {
         'common/nbsp/afterShortWord': { lengthShortWord: 3 },
-        // Включаем NBSP перед короткими словами для предотвращения висящих предлогов
         'common/nbsp/beforeShortLastWord': { lengthShortWord: 3 },
-        // Включаем правило для английского языка
         'en/nbsp/beforeShortLastWord': { lengthShortWord: 3 },
-        // Альтернативное правило для коротких слов
         'common/nbsp/beforeShortWord': { lengthShortWord: 3 },
       },
     }),
@@ -88,9 +84,8 @@ export default defineConfig({
       wrap: true
     },
     remarkPlugins: [
-      // Типографика для Markdown (неразрывные пробелы, кавычки и т.д.)
-      // ВАЖНО: должен быть первым, чтобы обработать текст до других плагинов
-      remarkTypograf,
+      // ВРЕМЕННО ОТКЛЮЧЕНО: remarkTypograf — проблема с undefined
+      // remarkTypograf,
       // Поддержка Wiki-ссылок в стиле Obsidian: [[page]] или [[page|alias]]
       [remarkWikiLink, {
         pageResolver: (name) => [name.replace(/ /g, '-').toLowerCase()],
