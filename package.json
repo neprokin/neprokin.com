@@ -18,7 +18,8 @@
     "glob": "^10.3.10",
     "rehype-highlight": "^7.0.2",
     "remark-wiki-link": "^2.0.1",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "astro-typograf": "^3.2.1",

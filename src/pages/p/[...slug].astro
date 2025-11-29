@@ -1,0 +1,253 @@
+---
+/**
+ * =============================================================================
+ * Минималистичные публикации в стиле Telegraph
+ * =============================================================================
+ * 
+ * Динамическая страница для отображения постов из коллекции 'posts'.
+ * 
+ * URL: /p/[slug]
+ * Контент: src/content/posts/[slug].md
+ * 
+ * Дизайн:
+ * - Максимальная ширина 680px (оптимально для чтения)
+ * - Без навигации и лишних элементов
+ * - Только заголовок, контент и мини-футер
+ * - Полная поддержка Markdown: таблицы, код, цитаты, списки
+ * 
+ * Типографика:
+ * - Автоматические неразрывные пробелы через remark-typograf
+ * - Русский и английский языки
+ * 
+ * =============================================================================
+ */
+
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+// Генерируем статические пути для всех постов
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+  <main class="post-container">
+    <article class="post-content">
+      <h1 class="post-title">{post.data.title}</h1>
+      <div class="post-body prose">
+        <Content />
+      </div>
+    </article>
+    
+    <footer class="post-footer">
+      <a href="/" class="post-footer-link">neprokin.com</a>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  .post-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: var(--space-5xl) var(--space-xl);
+  }
+  
+  .post-content {
+    flex: 1;
+  }
+  
+  .post-title {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-light);
+    font-size: var(--font-size-h1);
+    line-height: var(--line-height-h1);
+    color: var(--text);
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .post-body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-light);
+    font-size: var(--font-size-body-large);
+    line-height: var(--line-height-body-large);
+    color: var(--text);
+  }
+  
+  /* Prose styles for Markdown content */
+  .prose :global(p) {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .prose :global(h2) {
+    font-weight: var(--font-weight-light);
+    font-size: var(--font-size-h2);
+    line-height: var(--line-height-h2);
+    color: var(--text);
+    margin-top: var(--space-4xl);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .prose :global(h3) {
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-body-large);
+    line-height: var(--line-height-body-large);
+    color: var(--text);
+    margin-top: var(--space-3xl);
+    margin-bottom: var(--space-md);
+  }
+  
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: var(--space-xl);
+    padding-left: var(--space-xl);
+  }
+  
+  .prose :global(li) {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .prose :global(a) {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  
+  .prose :global(a:hover) {
+    opacity: 0.7;
+  }
+  
+  .prose :global(strong) {
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .prose :global(code) {
+    font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+    font-size: 0.9em;
+    background: var(--surface);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  
+  .prose :global(pre) {
+    background: var(--surface);
+    padding: var(--space-lg);
+    border-radius: var(--space-sm);
+    overflow-x: auto;
+    margin-bottom: var(--space-xl);
+  }
+  
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+  
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--accent);
+    padding-left: var(--space-lg);
+    margin: var(--space-xl) 0;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+  
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: var(--space-4xl) 0;
+  }
+  
+  .prose :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--space-sm);
+    margin: var(--space-xl) 0;
+  }
+  
+  /* Table styles */
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-xl) 0;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+  }
+  
+  .prose :global(thead) {
+    border-bottom: 2px solid var(--accent);
+  }
+  
+  .prose :global(th) {
+    font-weight: var(--font-weight-medium);
+    text-align: left;
+    padding: var(--space-sm) var(--space-md);
+    color: var(--text);
+  }
+  
+  .prose :global(td) {
+    padding: var(--space-sm) var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+  }
+  
+  .prose :global(tr:last-child td) {
+    border-bottom: none;
+  }
+  
+  .prose :global(tbody tr:hover) {
+    background: var(--surface);
+  }
+  
+  /* Responsive tables */
+  @media (max-width: 768px) {
+    .prose :global(table) {
+      font-size: 14px;
+    }
+    
+    .prose :global(th),
+    .prose :global(td) {
+      padding: var(--space-xs) var(--space-sm);
+    }
+  }
+  
+  .post-footer {
+    margin-top: var(--space-5xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .post-footer-link {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-body);
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .post-footer-link:hover {
+    color: var(--accent);
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .post-container {
+      padding: var(--space-3xl) var(--space-lg);
+    }
+    
+    .post-title {
+      font-size: var(--font-size-h1);
+      line-height: var(--line-height-h1);
+    }
+  }
+</style>
+
